@@ -1,0 +1,501 @@
++------+--------+----------+-------+------------------+
+| sid  | name   | mobileno | marks | emailid          |
++------+--------+----------+-------+------------------+
+|   10 | ram    |  9098768 |   170 | ram@gmail.com    |
+|   20 | sam    |  8098168 |   270 | sam@gmail.com    |
+|   30 | riya   |  6098761 |   370 | riya@gmail.com   |
+|   90 | king   |  6098168 |   170 | king@gmail.com   |
+|   40 | dinesh |  9909871 |   110 | dinesh@gmail.com |
+|   50 | manju  |  7098168 |   300 | manju@gmail.com  |
++------+--------+----------+-------+------------------*
+
+******************************************************************************************
+1)
+
+
+mysql> select name
+    -> from studentsinfo
+    -> where marks between 180 and 500;
++-------+
+| name  |
++-------+
+| sam   |
+| riya  |
+| manju |
++-------+
+...............................................................................................
+2)
+
+
+mysql> select *
+    -> from studentsinfo
+    -> where marks between 180 and 500;
++------+-------+----------+-------+-----------------+
+| sid  | name  | mobileno | marks | emailid         |
++------+-------+----------+-------+-----------------+
+|   20 | sam   |  8098168 |   270 | sam@gmail.com   |
+|   30 | riya  |  6098761 |   370 | riya@gmail.com  |
+|   50 | manju |  7098168 |   300 | manju@gmail.com |
++------+-------+----------+-------+-----------------+
+
+..............................................................................................
+3)
+
+
+mysql> select *
+    -> from studentsinfo
+    -> where name like 'k%';
++------+------+----------+-------+----------------+
+| sid  | name | mobileno | marks | emailid        |
++------+------+----------+-------+----------------+
+|   90 | king |  6098168 |   170 | king@gmail.com |
++------+------+----------+-------+----------------+
+
+4)
+
+
+mysql> select *
+    -> from studentsinfo
+    -> where sid in (10,30,50);
++------+-------+----------+-------+-----------------+
+| sid  | name  | mobileno | marks | emailid         |
++------+-------+----------+-------+-----------------+
+|   10 | ram   |  9098768 |   170 | ram@gmail.com   |
+|   30 | riya  |  6098761 |   370 | riya@gmail.com  |
+|   50 | manju |  7098168 |   300 | manju@gmail.com |
++------+-------+----------+-------+-----------------+
+3 rows in set (0.05 sec)
+....................................................................................
+
+5) Altering the table adding a column LOC
+
+mysql> alter table studentsinfo add loc varchar(20);
+
+mysql> select *
+    -> from studentsinfo;
++------+--------+----------+-------+------------------+------+
+| sid  | name   | mobileno | marks | emailid          | loc  |
++------+--------+----------+-------+------------------+------+
+|   10 | ram    |  9098768 |   170 | ram@gmail.com    | NULL |
+|   20 | sam    |  8098168 |   270 | sam@gmail.com    | NULL |
+|   30 | riya   |  6098761 |   370 | riya@gmail.com   | NULL |
+|   90 | king   |  6098168 |   170 | king@gmail.com   | NULL |
+|   40 | dinesh |  9909871 |   110 | dinesh@gmail.com | NULL |
+|   50 | manju  |  7098168 |   300 | manju@gmail.com  | NULL |
++------+--------+----------+-------+------------------+------+
+.........................................................................................
+6) Altering the table by deleting the added column LOC
+
+mysql> alter table studentsinfo drop loc;
+
+mysql> select*
+    -> from studentsinfo;
++------+--------+----------+-------+------------------+
+| sid  | name   | mobileno | marks | emailid          |
++------+--------+----------+-------+------------------+
+|   10 | ram    |  9098768 |   170 | ram@gmail.com    |
+|   20 | sam    |  8098168 |   270 | sam@gmail.com    |
+|   30 | riya   |  6098761 |   370 | riya@gmail.com   |
+|   90 | king   |  6098168 |   170 | king@gmail.com   |
+|   40 | dinesh |  9909871 |   110 | dinesh@gmail.com |
+|   50 | manju  |  7098168 |   300 | manju@gmail.com  |
++------+--------+----------+-------+------------------+
+...........................................................................................
+
+7) Altering the table by renaming the column name
+
+
+mysql> alter table company
+    -> change sid id int;
+    
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int(11)     | YES  |     | NULL    |       |
+| name     | varchar(30) | YES  |     | NULL    |       |
+| mobileno | int(20)     | YES  |     | NULL    |       |
+| marks    | double      | YES  |     | NULL    |       |
+| emailid  | varchar(40) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+..........................................................................................
+ 8) 
+ 
+ create database student;
+ 
+ mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bcits              |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
++--------------------+
+.....................................................................................
+9)
+
+mysql> drop database student;
+
+--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bcits              |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+
+.........................................................................................
+10)
+
+
+
+mysql> insert into company(id,name,mobileno,marks,emailid)
+    -> values(70,'ram',7707654,190,'ram@gmail.com');
+    
+  +------+--------+----------+-------+------------------+
+| id   | name   | mobileno | marks | emailid          |
++------+--------+----------+-------+------------------+
+|   10 | ram    |  9098768 |   170 | ram@gmail.com    |
+|   20 | sam    |  8098168 |   270 | sam@gmail.com    |
+|   30 | riya   |  6098761 |   370 | riya@gmail.com   |
+|   90 | king   |  6098168 |   170 | king@gmail.com   |
+|   40 | dinesh |  9909871 |   110 | dinesh@gmail.com |
+|   50 | manju  |  7098168 |   300 | manju@gmail.com  |
+|   70 | ram    |  7707654 |   190 | ram@gmail.com    |
++------+--------+----------+-------+------------------+
+.......................................................................................
+11)
+
+mysql> select distinct name
+    -> from company;
+    
+ +--------+
+| name   |
++--------+
+| ram    |
+| sam    |
+| riya   |
+| king   |
+| dinesh |
+| manju  |
++--------+
+......................................................................................
+11)
+
+mysql> select distinct name, emailid
+    -> from company;
+    
+ +--------+------------------+
+| name   | emailid          |
++--------+------------------+
+| ram    | ram@gmail.com    |
+| sam    | sam@gmail.com    |
+| riya   | riya@gmail.com   |
+| king   | king@gmail.com   |
+| dinesh | dinesh@gmail.com |
+| manju  | manju@gmail.com  |
++--------+------------------+
+......................................................................................
+12) Alias name
+
+mysql> select name as sname
+    -> from company;
+    
+    
+ +--------+
+| sname  |
++--------+
+| ram    |
+| sam    |
+| riya   |
+| king   |
+| dinesh |
+| manju  |
+| ram    |
++--------+
+    
+ ..................................................................................
+    
+ 13)
+ 
+ mysql> select 5+3
+    -> ;
++-----+
+| 5+3 |
++-----+
+|   8 |
++-----+
+........................................................................
+
+14)
+
+mysql> select 200 * 1000;
++------------+
+| 200 * 1000 |
++------------+
+|     200000 |
++------------+
+
+........................................................................................   
+ 
+ 15)
+ 
+ mysql> select 2000 > 500;
++------------+
+| 2000 > 500 |
++------------+
+|          1 |
++------------+
+1 row in set (0.00 sec)
+..........................................................................................
+16)
+
+
+mysql> select 15000 < 100;
++-------------+
+| 15000 < 100 |
++-------------+
+|           0 |
++-------------+
+1 row in set (0.00 sec)
+...........................................................................................
+17)   
+
+mysql> select (10 > 5) & (11 >3);
++--------------------+
+|(10 > 5) & (11 > 3) |
++--------------------+
+|                  1 |
++--------------------+
+
+................................................................................................
+
+18)
+
+mysql> select (19 > 10 ) | ( 1 > 10);
++------------------------+
+| (19 > 10 ) | ( 1 > 10) |
++------------------------+
+|                      1 |
++------------------------+
+1 row in set (0.00 sec)
+..............................................................................................
+
+19)     Employee Details
+
+
+
+mysql> create table employeeinfo (
+    -> empid int not null primary key,
+    -> name varchar(100),
+    -> mobileno bigint,
+    -> emailid varchar(200),
+    -> dob date,
+    -> designation varchar(200),
+    -> salary double,
+    -> dept int,
+    -> bloodgroup varchar(200),
+    -> gender varchar(200));
+Query OK, 0 rows affected (0.72 sec)
+
+mysql> desc employeeinfo;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| empid       | int(11)      | NO   | PRI | NULL    |       |
+| name        | varchar(100) | YES  |     | NULL    |       |
+| mobileno    | bigint(20)   | YES  |     | NULL    |       |
+| emailid     | varchar(200) | YES  |     | NULL    |       |
+| dob         | date         | YES  |     | NULL    |       |
+| designation | varchar(200) | YES  |     | NULL    |       |
+| salary      | double       | YES  |     | NULL    |       |
+| dept        | int(11)      | YES  |     | NULL    |       |
+| bloodgroup  | varchar(200) | YES  |     | NULL    |       |
+| gender      | varchar(200) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(10,'Ashin',7907170787,'ashin54@gmail.com','1999-10-24','Developer',10000,1,'B+ve','Male');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(20,'Raj',9907140787,'raj184@gmail.com','1999-04-20','Developer',10000,2,'O+ve','Male');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(30,'Prashul',8900140787,'prashulsh4@gmail.com','1999-09-10','Developer',10000,1,'B+ve','Male');
+Query OK, 1 row affected (0.35 sec)
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(40,'Sam',9098765431,'samsh4@gmail.com','1989-03-03','Manger',80000,1,'A+ve','Male');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(50,'Sheela',9008715431,'sheela954@gmail.com','1969-03-05','Clerk',10000,4,'AB+ve','Female');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(60,'Geetha',7008715431,'geetha234@gmail.com','1976-11-05','Clerk',10000,4,'AB-ve','Female');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(70,'Manju',6508715431,'manju9874@gmail.com','1996-11-05','Tester',10000,3,'O-ve','Female');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(80,'Dev',9508715431,'devr74@gmail.com','1999-09-05','Developer',10000,1,'B+ve','Male');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(90,'Keran',9500015431,'keran04@gmail.com','1990-05-23','Tester',23000,3,'A+ve','Male');
+Query OK, 1 row affected (0.33 sec)
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(90,'Keerthi',7509015431,'keerthi124@gmail.com','1980-09-03','Manager',83000,2,'AB+ve','Female');
+ERROR 1062 (23000): Duplicate entry '90' for key 'PRIMARY'
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender)
+    -> values(100,'Keerthi',7509015431,'keerthi124@gmail.com','1980-09-03','Manager',83000,2,'AB+ve','Female');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select *
+    -> from employeeinfo;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  10000 |    1 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  10000 |    2 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  10000 |    1 | B+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |    1 | A+ve       | Male   |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  10000 |    4 | AB+ve      | Female |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  10000 |    4 | AB-ve      | Female |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  10000 |    3 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  10000 |    1 | B+ve       | Male   |
+|    90 | Keran   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |    3 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |    2 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+10 rows in set (0.00 sec)
+
+mysql> select *
+    -> from employeeinfo
+    -> where salary between 30000 and 100000;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |    1 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |    2 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select *
+    -> from employeeinfo
+    -> where name like 'A%';
++-------+-------+------------+-------------------+------------+-------------+--------+------+------------+--------+
+| empid | name  | mobileno   | emailid           | dob        | designation | salary | dept | bloodgroup | gender |
++-------+-------+------------+-------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin | 7907170787 | ashin54@gmail.com | 1999-10-24 | Developer   |  10000 |    1 | B+ve       | Male   |
++-------+-------+------------+-------------------+------------+-------------+--------+------+------------+--------+
+1 row in set (0.00 sec)
+
+mysql> update employeeinfo
+    -> set dept
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> update employeeinfo
+    -> set dept = 10
+    -> where dept = 1;
+Query OK, 4 rows affected (0.09 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> update employeeinfo
+    -> set dept = 20
+    -> where dept = 2;
+Query OK, 2 rows affected (0.03 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update employeeinfo
+    -> set dept = 30
+    -> where dept = 3;
+Query OK, 2 rows affected (0.06 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update employeeinfo
+    -> set dept = 40
+    -> where dept = 4;
+Query OK, 2 rows affected (0.08 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select*
+    -> from employeeinfo;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  10000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  10000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  10000 |   10 | B+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  10000 |   40 | AB+ve      | Female |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  10000 |   40 | AB-ve      | Female |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  10000 |   30 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  10000 |   10 | B+ve       | Male   |
+|    90 | Keran   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+10 rows in set (0.00 sec)
+
+mysql> update employeeinfo
+    -> set salary = 15000
+    -> where salary = 10000;
+Query OK, 7 rows affected (0.08 sec)
+Rows matched: 7  Changed: 7  Warnings: 0
+
+mysql> select *
+    -> from employeeinfo;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  15000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  15000 |   40 | AB+ve      | Female |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  15000 |   40 | AB-ve      | Female |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    90 | Keran   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+10 rows in set (0.00 sec)
+
+mysql> update employeeinfo
+    -> set salary = 40000
+    -> where name = 'Raj';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *
+    -> from employeeinfo;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  15000 |   40 | AB+ve      | Female |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  15000 |   40 | AB-ve      | Female |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    90 | Keran   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+ 
+
+
+
+
+
+

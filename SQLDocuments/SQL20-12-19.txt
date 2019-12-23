@@ -1,0 +1,587 @@
+1Q WAQTD to find the unique dept id from the employeeinfo table.
+
+mysql> select distinct dept
+    -> from employeeinfo;
++------+
+| dept |
++------+
+|   10 |
+|   20 |
+|   40 |
+|   30 |
++------+
+........................................................................................................................
+
+2Q WAQTD the unique dept and designation
+
+
+mysql> select distinct dept,designation
+    -> from employeeinfo;
++------+-------------+
+| dept | designation |
++------+-------------+
+|   10 | Developer   |
+|   20 | Developer   |
+|   10 | Manger      |
+|   40 | Clerk       |
+|   30 | Tester      |
+|   20 | Manager     |
++------+-------------+
+..........................................................................................................................
+
+3Q WAQTD all the records who work as "Developer"
+
+mysql> select *
+    -> from employeeinfo
+    -> where designation = 'Developer';
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+
+.........................................................................................................................
+4Q WAQTD name,mobileno whose salary is more than 50000
+
+mysql> select name, mobileno
+    -> from employeeinfo
+    -> where salary>15000;
++---------+------------+
+| name    | mobileno   |
++---------+------------+
+| Raj     | 9907140787 |
+| Sam     | 9098765431 |
+| Sheela  | 9008715431 |
+| Geetha  | 7008715431 |
+| Blake   | 9500015431 |
+| Keerthi | 7509015431 |
++---------+------------+
+6 rows in set (0.00 sec)
+..........................................................................................................................
+
+5Q WAQTD all the details whose salary < 25000
+
+
+mysql> select *
+    -> from employeeinfo
+    -> where salary <= 25000;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+
+............................................................................................................................
+
+6Q WAQTD all the records of the employee expect who work as "Tester"
+
+
+mysql> select *
+    -> from employeeinfo
+    -> where designation <> 'Tester';
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  45000 |   40 | AB+ve      | Female |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+8 rows in set (0.00 sec)
+.............................................................................................................................
+
+7Q WAQTD the incremented salary by 50000
+
+
+
+mysql> select salary + 5000
+    -> from employeeinfo;
++---------------+
+| salary + 5000 |
++---------------+
+|         20000 |
+|         45000 |
+|         20000 |
+|         85000 |
+|         50000 |
+|         35000 |
+|         20000 |
+|         20000 |
+|         28000 |
+|         88000 |
++---------------+
+
+
+mysql> select salary + 5000 incrementedsalary >>>>>>>>>>>>>>>>>(using alias name)
+    -> from employeeinfo;
++-------------------+
+| incrementedsalary |
++-------------------+
+|             20000 |
+|             45000 |
+|             20000 |
+|             85000 |
+|             50000 |
+|             35000 |
+|             20000 |
+|             20000 |
+|             28000 |
+|             88000 |
++-------------------+
+10 rows in set (0.00 sec)
+.................................................................................................................................
+
+8Q WAQTD the annual incremented salary 
+
+mysql> select (salary + 5000)*12
+    -> from employeeinfo;
++--------------------+
+| (salary + 5000)*12 |
++--------------------+
+|             240000 |
+|             540000 |
+|             240000 |
+|            1020000 |
+|             600000 |
+|             420000 |
+|             240000 |
+|             240000 |
+|             336000 |
+|            1056000 |
++--------------------+
+
+mysql> select (salary + 5000)*12 annualincrementedsalary >>>>>>>>>>>>>>>>>>>>>>(alias name)
+    -> from employeeinfo;
++-------------------------+
+| annualincrementedsalary |
++-------------------------+
+|                  240000 |
+|                  540000 |
+|                  240000 |
+|                 1020000 |
+|                  600000 |
+|                  420000 |
+|                  240000 |
+|                  240000 |
+|                  336000 |
+|                 1056000 |
++-------------------------+
+10 rows in set (0.00 sec)
+
+................................................................................................................................
+
+9Q WAQTD all the records who work as developer and the dept = 10
+
+mysql> select *
+    -> from employeeinfo
+    -> where designation = 'Developer' and dept = 10;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+3 rows in set (0.05 sec)
+
+................................................................................................................................
+
+10Q WAQTD designation whose job = 'Tester' and dob after 1990 
+
+mysql> select designation
+    -> from employeeinfo
+    -> where designation = 'Tester' and dob  > '1990-1-1';
++-------------+
+| designation |
++-------------+
+| Tester      |
+| Tester      |
++-------------+
+
+
+ WAQTD all the records whose job = 'Tester' and dob after 1990  
+
+mysql> select *
+    -> from employeeinfo
+    -> where designation = 'Tester' and dob > ' 1990-01-01';
++-------+-------+------------+---------------------+------------+-------------+--------+------+------------+--------+
+| empid | name  | mobileno   | emailid             | dob        | designation | salary | dept | bloodgroup | gender |
++-------+-------+------------+---------------------+------------+-------------+--------+------+------------+--------+
+|    70 | Manju | 6508715431 | manju9874@gmail.com | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |
+|    90 | Blake | 9500015431 | keran04@gmail.com   | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
++-------+-------+------------+---------------------+------------+-------------+--------+------+------------+--------+
+
+.................................................................................................................................
+
+11Q  WAQTD all the records of the employee who is working in dept = 20 or designation = 'Clerk'
+
+mysql> select *
+    -> from employeeinfo
+    -> where dept = 20 or designation = 'Clerk';
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  45000 |   40 | AB+ve      | Female |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+4 rows in set (0.00 sec)
+
+
+...................................................................................................................................
+
+12Q WAQTD all the records whose dob < '1995' and the blood group 'O+ve'
+
+mysql> select *
+    -> from employeeinfo
+    -> where dob < ' 1995-01-01' or bloodgroup = 'O+ve';
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  45000 |   40 | AB+ve      | Female |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+6 rows in set (0.00 sec)
+
+...................................................................................................................................
+
+13Q WAQTD name,emailid who work as "Tester" or "Developer" or "Clerk"
+
+mysql> select name,emailid
+    -> from employeeinfo
+    -> where designation = 'Tester' or 'Developer' or 'Clerk';
++-------+---------------------+
+| name  | emailid             |
++-------+---------------------+
+| Manju | manju9874@gmail.com |
+| Blake | keran04@gmail.com   |
++-------+---------------------+
+2 rows in set, 2 warnings (0.00 sec)
+
+............................................................................................................................................
+
+14Q WAQTD all the records expect clerk
+
+
+mysql> select *
+    -> from employeeinfo
+    -> where designation !='Clerk';
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+8 rows in set (0.00 sec)
+
+
+mysql> select *
+    -> from employeeinfo
+    -> where not designation = 'Clerk';
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+
+.........................................................................................................................................
+
+15Q WAQTD all the records of the employee who are not working in dept = 10,20,30
+
+mysql> select *
+    -> from employeeinfo
+    -> where not( dept = 10 or dept = 20 or dept = 30 );
++-------+--------+------------+---------------------+------------+-------------+--------+------+------------+--------+
+| empid | name   | mobileno   | emailid             | dob        | designation | salary | dept | bloodgroup | gender |
++-------+--------+------------+---------------------+------------+-------------+--------+------+------------+--------+
+|    50 | Sheela | 9008715431 | sheela954@gmail.com | 1969-03-05 | Clerk       |  45000 |   40 | AB+ve      | Female |
+|    60 | Geetha | 7008715431 | geetha234@gmail.com | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |
++-------+--------+------------+---------------------+------------+-------------+--------+------+------------+--------+
+2 rows in set (0.00 sec)
+
+..........................................................................................................................................
+
+16Q WAQTD all the employee excluding "Tester" who is working dept = 40
+
+
+mysql> select *
+    -> from employeeinfo
+    -> where not ( designation = 'Tester' and dept = 40);
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  45000 |   40 | AB+ve      | Female |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+10 rows in set (0.00 sec)
+
+...........................................................................................................................................
+17Q WAQT insert id,name,mobileno and sal into the table and create a new  field
+
+mysql> insert into employeeinfo(empid,name,mobileno,salary)
+    -> values(110,'Naga',7807652410,43000);
+Query OK, 1 row affected (0.34 sec)
+
+mysql> select *
+    -> from employeeinfo;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  45000 |   40 | AB+ve      | Female |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
+|   110 | Naga    | 7807652410 | NULL                 | NULL       | NULL        |  43000 | NULL | NULL       | NULL   |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+11 rows in set (0.00 sec)
+...........................................................................................................................................
+
+18Q WAQTD all the details of the employee who is working in deptno 10,20,30
+
+
+mysql> select *
+    -> from employeeinfo
+    -> where dept in (10,20,30);
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Manager     |  83000 |   20 | AB+ve      | Female |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+8 rows in set (0.00 sec)
+
+.............................................................................................................................................
+
+19Q WAQTD all the details of the employee who are working as clerk or salesman or developer or tester
+
+mysql> select*
+    -> from employeeinfo
+    -> where designation in ('Tester','Developer','Salesman','Clerk');
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | Developer   |  40000 |   20 | O+ve       | Male   |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  45000 |   40 | AB+ve      | Female |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+
+8 rows in set (0.00 sec)
+
+..........................................................................................................................................
+
+20Q WAQTD all the details of the Developer , Manager, HR, Tester who is working in deptno 10,20,30 and sal >15000
+
+mysql> select *
+    -> from employeeinfo
+    -> where designation in ('Developer','Tester','Manager') and dept in (10,30,40) and salary > 15000;
++-------+-------+------------+-------------------+------------+-------------+--------+------+------------+--------+
+| empid | name  | mobileno   | emailid           | dob        | designation | salary | dept | bloodgroup | gender |
++-------+-------+------------+-------------------+------------+-------------+--------+------+------------+--------+
+|    90 | Blake | 9500015431 | keran04@gmail.com | 1990-05-23 | Tester      |  23000 |   30 | A+ve       | Male   |
++-------+-------+------------+-------------------+------------+-------------+--------+------+------------+--------+
+1 row in set (0.01 sec)
+
+
+.........................................................................................................................................
+
+21Q WAQTD all the records of the empl excluding who is working as Tester, HR and Developer
+
+mysql> select*
+    -> from employeeinfo
+    -> where designation not in ('Tester','Developer','HR');
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender | age  | doj  |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |   50 | 2015 |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  45000 |   40 | AB+ve      | Female |   36 | 2010 |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |   48 | 2000 |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Analyst     |  83000 |   20 | AB+ve      | Female |   23 | 2000 |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+
+...........................................................................................................................................
+
+22Q WAQTD all the details of emp dept 20,30 excluding  whose designation is "Analyst", "HR', "Tester"
+
+
+mysql> select *
+    -> from employeeinfo
+    -> where dept in(20,30) and designation not in ('Tester','Analyst','HR');
+Empty set (0.00 sec)
+.......................................................................................................................................
+
+23Q WAQTD all the records of the employee whose salary range 20000 to 30000
+
+mysql> select *
+    -> from employeeinfo
+    -> where salary between 20000 and 30000;
++-------+--------+------------+---------------------+------------+-------------+--------+------+------------+--------+------+------+
+| empid | name   | mobileno   | emailid             | dob        | designation | salary | dept | bloodgroup | gender | age  | doj  |
++-------+--------+------------+---------------------+------------+-------------+--------+------+------------+--------+------+------+
+|    60 | Geetha | 7008715431 | geetha234@gmail.com | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |   48 | 2000 |
+|    90 | Blake  | 9500015431 | keran04@gmail.com   | 1990-05-23 | HR          |  23000 |   30 | A+ve       | Male   |   23 | 2017 |
++-------+--------+------------+---------------------+------------+-------------+--------+------+------------+--------+------+------+
+
+..............................................................................................................................................
+
+24Q WAQTD all the details of the empl whose age is 20 to 30 
+
+mysql> select *
+    -> from employeeinfo
+    -> where age between 20 and 30;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender | age  | doj  |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |   27 | 2010 |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | HR          |  40000 |   20 | O+ve       | Male   |   23 | 2010 |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |   27 | 2015 |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |   23 | 2017 |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |   27 | 2010 |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | HR          |  23000 |   30 | A+ve       | Male   |   23 | 2017 |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Analyst     |  83000 |   20 | AB+ve      | Female |   23 | 2000 |
+|   110 | Naga    | 7807652410 | NULL                 | NULL       | NULL        |  43000 | NULL | NULL       | NULL   |   23 | 2010 |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+8 rows in set (0.01 sec)
+.............................................................................................................................................
+
+25Q WAQTD all the details of the employee whose doj is 2015
+
+mysql> select*
+    -> from employeeinfo
+    -> where doj = 2015;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender | age  | doj  |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |   27 | 2015 |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |   50 | 2015 |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+
+.............................................................................................................................................
+
+26Q WAQTD all the records of the empl excluding whose salary is in the range of 15000 to 70000
+
+mysql> select *
+    -> from employeeinfo
+    -> where salary not between 50000 and 70000;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender | age  | doj  |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |   27 | 2010 |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | HR          |  40000 |   20 | O+ve       | Male   |   23 | 2010 |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |   27 | 2015 |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |   50 | 2015 |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  45000 |   40 | AB+ve      | Female |   36 | 2010 |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |   48 | 2000 |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |   23 | 2017 |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |   27 | 2010 |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | HR          |  23000 |   30 | A+ve       | Male   |   23 | 2017 |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Analyst     |  83000 |   20 | AB+ve      | Female |   23 | 2000 |
+|   110 | Naga    | 7807652410 | NULL                 | NULL       | NULL        |  43000 | NULL | NULL       | NULL   |   23 | 2010 |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+...........................................................................................................................................
+
+27Q WAQTD all the details of the empl where no salary
+
+mysql> select *
+    -> from employeeinfo
+    -> where salary is null;
+Empty set (0.05 sec)
+.................................................................................................................................
+
+28Q WAQTD all the records of the employee where dept is not null
+
+mysql> select *
+    -> from employeeinfo
+    -> where dept is not null;
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+| empid | name    | mobileno   | emailid              | dob        | designation | salary | dept | bloodgroup | gender | age  | doj  |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+|    10 | Ashin   | 7907170787 | ashin54@gmail.com    | 1999-10-24 | Developer   |  15000 |   10 | B+ve       | Male   |   27 | 2010 |
+|    20 | Raj     | 9907140787 | raj184@gmail.com     | 1999-04-20 | HR          |  40000 |   20 | O+ve       | Male   |   23 | 2010 |
+|    30 | Prashul | 8900140787 | prashulsh4@gmail.com | 1999-09-10 | Developer   |  15000 |   10 | B+ve       | Male   |   27 | 2015 |
+|    40 | Sam     | 9098765431 | samsh4@gmail.com     | 1989-03-03 | Manger      |  80000 |   10 | A+ve       | Male   |   50 | 2015 |
+|    50 | Sheela  | 9008715431 | sheela954@gmail.com  | 1969-03-05 | Clerk       |  45000 |   40 | AB+ve      | Female |   36 | 2010 |
+|    60 | Geetha  | 7008715431 | geetha234@gmail.com  | 1976-11-05 | Clerk       |  30000 |   40 | AB-ve      | Female |   48 | 2000 |
+|    70 | Manju   | 6508715431 | manju9874@gmail.com  | 1996-11-05 | Tester      |  15000 |   30 | O-ve       | Female |   23 | 2017 |
+|    80 | Dev     | 9508715431 | devr74@gmail.com     | 1999-09-05 | Developer   |  15000 |   10 | B+ve       | Male   |   27 | 2010 |
+|    90 | Blake   | 9500015431 | keran04@gmail.com    | 1990-05-23 | HR          |  23000 |   30 | A+ve       | Male   |   23 | 2017 |
+|   100 | Keerthi | 7509015431 | keerthi124@gmail.com | 1980-09-03 | Analyst     |  83000 |   20 | AB+ve      | Female |   23 | 2000 |
++-------+---------+------------+----------------------+------------+-------------+--------+------+------------+--------+------+------+
+10 rows in set (0.00 sec)
+
+......................................................................................................................................
+
+
+29Q WAQTD all the records of the employee where dept is null
+
+mysql> select *
+    -> from employeeinfo
+    -> where dept is null;
++-------+------+------------+---------+------+-------------+--------+------+------------+--------+------+------+
+| empid | name | mobileno   | emailid | dob  | designation | salary | dept | bloodgroup | gender | age  | doj  |
++-------+------+------------+---------+------+-------------+--------+------+------------+--------+------+------+
+|   110 | Naga | 7807652410 | NULL    | NULL | NULL        |  43000 | NULL | NULL       | NULL   |   23 | 2010 |
++-------+------+------------+---------+------+-------------+--------+------+------------+--------+------+------+
+
+.....................................................................................................................................
+
+
+
+ 
+
+
+
+
+
