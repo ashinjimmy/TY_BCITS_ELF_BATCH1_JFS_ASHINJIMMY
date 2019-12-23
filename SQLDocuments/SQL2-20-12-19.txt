@@ -1,0 +1,172 @@
+30Q
+
+mysql> select *
+    -> from employeeinfo
+    -> where not designation = 'Clerk';
+
+..........................................................................................
+
+31Q 
+
+mysql> select *
+    -> from employeeinfo
+    -> where not( dept = 10 or dept = 20 or dept = 30 );
+
+..........................................................................................
+
+32Q
+ 
+
+mysql> select *
+    -> from employeeinfo
+    -> where not ( designation = 'Tester' and dept = 40);
+
+..........................................................................................
+
+33Q 
+
+mysql> insert into employeeinfo(empid,name,mobileno,salary)
+    -> values(110,'Naga',7807652410,43000);
+
+..........................................................................................
+
+34Q
+
+mysql> select *
+    -> from employeeinfo
+    -> where dept in (10,20,30);
+
+...........................................................................................
+
+35Q
+
+mysql> select*
+    -> from employeeinfo
+    -> where designation in ('Tester','Developer','Salesman','Clerk');
+
+...........................................................................................
+
+36Q
+
+mysql> select *
+    -> from employeeinfo
+    -> where designation in ('Developer','Tester','Manager') and dept in (10,30,40) and salary > 15000;
+
+..........................................................................................
+
+37Q
+
+mysql> select *
+    -> from employeeinfo
+    -> where name like '_r%';
+
+............................................................................................
+
+38Q
+
+mysql> select *
+    -> from employeeinfo
+    -> where name like '_____';
+
+.........................................................................................
+
+39Q
+
+mysql> select *
+    -> from employeeinfo
+    -> where emailid like '%com';
+
+.........................................................................................
+
+40Q
+
+
+mysql> select *
+    -> from employeeinfo
+    -> where designation not in ('HR','Tester','Clerk');
+
+........................................................................................
+
+41Q
+
+mysql> select*
+    -> from employeeinfo
+    -> where dept not in (10,20);
+
+.......................................................................................
+
+42Q
+
+mysql> select *
+    -> from employeeinfo
+    -> where dept in (20,30) and designation not in ('Analyst','HR','Tester','Clerk');
+
+.......................................................................................
+
+43Q
+
+mysql> select *
+    -> from employeeinfo
+    -> where salary between 20000 and 25000;
+
+......................................................................................
+44Q
+
+mysql> alter table employeeinfo
+    -> add column age int;
+
+.....................................................................................
+
+45Q
+
+mysql> update employeeinfo
+    -> set age = 27
+    -> where dept = 10;
+
+....................................................................................
+
+46Q
+
+
+mysql> update employeeinfo
+    -> set doj = 2010
+    -> where empid in(10,20);
+
+....................................................................................
+
+47Q
+
+mysql> select *
+    -> from employeeinfo
+    -> where doj = 2015;
+
+....................................................................................
+
+48Q
+
+mysql> update employeeinfo
+    -> set designation = 'Analyst'
+    -> where empid in(100);
+
+....................................................................................
+
+49Q
+
+
+mysql> select *
+    -> from employeeinfo
+    -> where dept is null;
+
+.....................................................................................
+
+50Q
+
+
+mysql> select name, emailid
+    -> from employeeinfo
+    -> where name like 'A%Z';
+
+...................................................................................
+
+
+
