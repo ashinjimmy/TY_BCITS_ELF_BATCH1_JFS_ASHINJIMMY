@@ -52,5 +52,32 @@ public static void selectionSortduration(int[] arr1) {
 		System.out.println("Unsorted array has taken " +seconds +" seconds to complete the tasks");
 		System.out.println();
   }
+  
+  public static void quickSortduration(int[] arr4) {
+		Instant start = Instant.now();
+		System.out.println();
+		int[] arrayQ = QuickSort.quickSort(arr4, 0, arr4.length-1);
+		DisplayOutputSortedArray.display(arrayQ);
+		Instant end = Instant.now();
+		Long duration =Duration.between(start,end).toMillis();
+		double seconds = duration /1000.0 ;
+		System.out.println();
+		System.out.println("QuickSort array has taken " +seconds +" seconds to complete the tasks");
+		System.out.println();
+  }
+  
+  public static void mergeSortduration(int[] arr4) {
+		Instant start = Instant.now();
+		System.out.println();
+		int[] arrayM = QuickSort.quickSort(arr4, 0, arr4.length-1);
+		DisplayOutputSortedArray.display(arrayM);
+		Instant end = Instant.now();
+		Long duration =Duration.between(start,end).toMillis();
+		double seconds = duration /1000.0 ;
+		System.out.println();
+		System.out.println("MergeSort array has taken " +seconds +" seconds to complete the tasks");
+		System.out.println();
+}
+
 
 }

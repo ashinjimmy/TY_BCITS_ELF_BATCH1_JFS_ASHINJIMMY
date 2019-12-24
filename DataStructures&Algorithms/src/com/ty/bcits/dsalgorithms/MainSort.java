@@ -13,6 +13,8 @@ public class MainSort {
 		SortDurationAnalysis.selectionSortduration(array);
 		SortDurationAnalysis.reversedarrayduration(array);
 		SortDurationAnalysis.unsortedarrayduration(array);
+		SortDurationAnalysis.mergeSortduration(array);
+		SortDurationAnalysis.quickSortduration(array);
 		
 	}
 
