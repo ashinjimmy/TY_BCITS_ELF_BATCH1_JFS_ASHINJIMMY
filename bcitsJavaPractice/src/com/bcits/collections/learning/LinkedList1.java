@@ -28,6 +28,12 @@ public class LinkedList1 {
 		System.out.println(l1.indexOf(10));
 		System.out.println("................lastIndexOf()..........\n");
 		System.out.println(l1.lastIndexOf(10));
+		l1.set(0, 6);
+		l1.add(null);
+		l1.add(null);
+		l1.add(88);
+		
+		System.out.println(l1);
 
 	}
 
