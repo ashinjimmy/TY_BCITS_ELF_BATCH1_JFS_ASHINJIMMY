@@ -11,8 +11,6 @@ public class Vector1 {
 		v1.add(25);
 		v1.add(45);
 		v1.add(null);
-		v1.add(null);
-		v1.add(25);
 		v1.add(12);
 		System.out.println(v1);
 		v1.remove(0);
@@ -28,7 +26,7 @@ public class Vector1 {
 		v1.trimToSize();
 		System.out.println(v1.size());
 		System.out.println(v1.capacity());
-
+		
 
 
 	}

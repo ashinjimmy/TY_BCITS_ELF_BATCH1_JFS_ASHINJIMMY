@@ -20,7 +20,7 @@ public class Person implements Comparable<Person> {
 	
 	@Override
 	public String toString() {
-		return "age = " + age + ", name = " + name ;
+		return "Person [age=" + age + ", name=" + name + "]";
 	}
 	
 

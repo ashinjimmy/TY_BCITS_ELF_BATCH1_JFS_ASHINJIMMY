@@ -32,21 +32,15 @@ public class ArrayList1 {
 			System.out.println(a1.get(i));
 
 		}
-
-
+		
+		
 		System.out.println("...............subList().................");
 		List l1 = a1.subList(0,4);
 		for (int i = 0; i < l1.size(); i++) {
 			System.out.println(l1.get(i));
-
+			
 		}
-
-		System.out.println("...............................................");
-		a1.add(null);
-		a1.add(null);
-		a1.add(36);
-		a1.add(36);
-		System.out.println(a1);
+		
 
 	}
 

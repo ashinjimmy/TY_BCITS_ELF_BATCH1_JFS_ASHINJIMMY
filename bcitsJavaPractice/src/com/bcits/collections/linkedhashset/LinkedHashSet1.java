@@ -11,14 +11,10 @@ public class LinkedHashSet1 {
 		lhs.add(100);
 		//lhs.add(null);
 		lhs.add(100);
-		lhs.add(490);
-		lhs.add(50);
-		lhs.add(140);
-		lhs.add(109);
+		lhs.add(49);
 		System.out.println(lhs);
-		lhs.remove(10);
-		System.out.println(lhs);
-		System.out.println(lhs.contains(109));
+		//lhs.remove(0);
+		//System.out.println(lhs);
 
 
 	}
