@@ -1,0 +1,193 @@
+1Q
+
+
+mysql> select avg(salary)
+    -> from employeeinfo;
+
+....................................................................................................
+
+2Q
+
+
+mysql> select avg(salary)
+    -> from employeeinfo
+    -> where dept in(10,20);
+
+....................................................................................................
+
+
+3Q
+
+mysql> select count(dept)
+    -> from employeeinfo;
+
+....................................................................................................
+
+4Q
+
+mysql> select max(salary)
+    -> from employeeinfo;
+
+....................................................................................................
+
+5Q
+
+mysql> select max(salary)
+    -> from employeeinfo
+    -> where dept = 10;
+
+...................................................................................................
+
+6Q
+
+
+mysql> select min(age)
+    -> from employeeinfo;
+
+...................................................................................................
+
+7Q
+
+
+mysql> select min(age)
+    -> from employeeinfo
+    -> where dept = 10;
+..................................................................................................
+
+8Q
+
+mysql> select sum(salary)
+    -> from employeeinfo;
+..................................................................................................
+
+9Q
+
+mysql> select count(dept)
+    -> from employeeinfo
+    -> where gender = 'male';
+.................................................................................................
+
+10Q 
+
+mysql> select upper(name)
+    -> from employeeinfo;
+................................................................................................
+
+11Q
+
+mysql> select lower(name)
+    -> from employeeinfo;
+................................................................................................
+
+12Q
+
+mysql> select reverse(name)
+    -> from employeeinfo;
+................................................................................................
+
+13Q
+
+mysql> select concat(name,age)
+    -> from employeeinfo;
+................................................................................................
+14Q
+
+mysql> select length(name)
+    -> from employeeinfo;
+
+................................................................................................
+15Q
+
+mysql> select length(name)
+    -> from employeeinfo
+    -> where dept = 10;
+
+................................................................................................
+16Q
+
+mysql> select substr('RamRaja',2,4);
+
+................................................................................................
+
+17Q
+
+mysql> select substr('RamRaja',2,6);
+
+................................................................................................
+
+18Q 
+mysql> select substr(name,1,5)
+    -> from employeeinfo;
+
+.................................................................................................
+
+19Q
+ 
+mysql> select instr(name,'Ashin')
+    -> from employeeinfo;
+
+.................................................................................................
+
+20Q
+
+
+mysql> create table department (deptid int not null primary key,
+    -> dname varchar(200) not null,
+    -> location varchar(200));
+
+mysql> insert into department (deptid,dname,location)
+    -> values(10,'Admin','Delhi'),(20,'HR','Mumbai'),(30,'Operation','Banglore'),(40,'Sales','Mumbai');
+
+.................................................................................................
+
+21Q
+
+mysql> select *
+    -> from department;
+
+...................................................................................................
+
+22Q 
+
+mysql> select count(location)
+    -> from department
+    -> group by location;
+
+....................................................................................................
+
+23Q
+
+mysql> select count(location)
+    -> from department
+    -> group by location = 'Mumbai'; 
+
+.....................................................................................................
+
+24Q
+
+mysql> select count(dept)
+    -> from employeeinfo
+    -> group by salary;
+
+......................................................................................................
+
+25Q
+
+mysql> set autocommit = 0;
+
+mysql> select *
+    -> from employeeinfo;
+
+mysql> insert into employeeinfo(empid,name,mobileno,emailid,dob,designation,salary,dept,bloodgroup,gender,age,doj)
+    -> values(130,'Nithin',9050075489,'nithin23@gmail.com','1997-10-04','Tester','17000',20,'B+ve','Male',27,2016);
+
+mysql> select *
+    -> from employeeinfo;
+
+mysql> rollback;
+
+mysql> select *
+    -> from employeeinfo;
+
+
+mysql> rollback;
