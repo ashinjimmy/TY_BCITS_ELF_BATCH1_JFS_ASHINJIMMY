@@ -1,0 +1,95 @@
+
+************************************************* Table 5 Address_Info **********************************************************************************8
+
+mysql> create table employee_address_info( emp_id int not null, address_type varchar(200), address1 varchar(400), address2 varchar(400),
+landmark varchar(300),city varchar(400),pincode bigint, primary key(emp_id, address_type));
+
+
+ insert into employee_address_info(emp_id,address_type,address1,address2,landmark,city,pincode)
+     values(10,'Permenant','House No.410','TVD road','Thiruvambady','Calicut',673603),(10,'Local','House No.400','Srinivasanagar','BTR','Basavanagudi',550056),
+       (20,'Permenant','House No.400','TVD road','Thiruvambady','Calicut',673603),
+       (20,'Local','House No.200','Indranagar','BTM','Marthahalli',560500);
+
+ insert into employee_address_info(emp_id,address_type,address1,address2,landmark,city,pincode)
+     values(30,'Permenant','House No.10100','KODVLY road','Koduvally','Calicut',675609),(30,'Local','House No.600','Indranagar','BTM','Marthahalli',560500),
+      (40,'Permenant','House No.1980','Shettynagar','Parkalla','Manipal',574030), 
+      (40,'Local','House No.400','Srinivasanagar','BTR','Basavanagudi',550056);
+
+ insert into employee_address_info(emp_id,address_type,address1,address2,landmark,city,pincode)
+     values(50,'Permenant','House No.124','Manjunagar','Shivanagar','Shivamoga',570009), (50,'Local','House No.390','Banunagar','BTM','Marthahalli',509050);
+
+ insert into employee_address_info(emp_id,address_type,address1,address2,landmark,city,pincode)
+    values(60,'Permenant','House No.624','Bandra','Mumbai-II','Mumbai',600009),(60,'Local','House No 19','Vidhynagar','BTM','Marthahalli',590550);
+
+ insert into employee_address_info(emp_id,address_type,address1,address2,landmark,city,pincode)
+      values(70,'Permenant','House No.64','Ujjire','Saralabettu','Puthur',700009),(70,'Local','House No 59','Sudhanagar','BTM','Marthahalli',5090550);
+
+ insert into employee_address_info(emp_id,address_type,address1,address2,landmark,city,pincode)
+     values(80,'Permenant','House No.14','VRnagar','Saralabettu','Darvad',100009),(80,'Local','House No 51','Ashoknagar','BTR','Basavanagudi',509660);
+
+insert into employee_address_info(emp_id,address_type,address1,address2,landmark,city,pincode)
+ values(90,'Permenant','House No.14','Athradi','Parkalla','Manipal',557009),(90,'Local','House No 5','Thyagarajnagar','BTR','Basavanagudi',509660);
+
+*****************************************************Table 6 Education_Info ****************************************************************************************************
+
+create table employee_education_info(emp_id int not null, education_type varchar(100), college_name varchar(400),yop date,stream varchar(400),percentage double, university_name varchar(300),primary key(emp_id,education_type));
+
+ insert into employee_education_info(emp_id,education_type,college_name,yop,stream,percentage,university_name)
+values(10,'10th','PES School','2011-06-10','CBSE Syllabus',78.7,''),values(10,'12th','PES School','2013-06-13','Science',78.7,'CBSE'),(10,'BTech','Manipal Institute of Technology','2019-04-10','ECE',66.7,'MAHE');
+
+ insert into employee_education_info(emp_id,education_type,college_name,yop,stream,percentage,university_name)
+     values(20,'10th','PES School','2011-06-10','CBSE Syllabus',86.7,'CBSE'),(20,'12th','PES School','2013-06-17','Science',96.7,'CBSE'),(20,'MSC','Manipal Institute of Scencience and Reserch','2018-04-10','MSC Computer Science',90.7,'MAHE');
+
+ insert into employee_education_info(emp_id,education_type,college_name,yop,stream,percentage,university_name)
+     values(30,'10th','MGC School','2013-05-10','ICSE Syllabus',86.7,'ICSE'),(30,'12th','Amaljothi','2013-04-10','Computer Science',78.7,'ICSE'),(30,'MCA','LPU Punjab','2019-05-10','MCA Computer Science',92.7,'LPU');
+
+ insert into employee_education_info(emp_id,education_type,college_name,yop,stream,percentage,university_name)
+     values(40,'10th',Little Rock,'2013-05-15','ICSE Syllabus',76.7,'ICSE'),(40,'12th','MGC Manipal','2013-06-10','Computer Science',79.7,'CBSE'),(40,'BTech','Manipal Institute of Technology','2019-04-10','ECE',66.7,'MAE');
+
+insert into employee_education_info(emp_id,education_type,college_name,yop,stream,percentage,university_name)
+     values(50,'10th','St. Jhones School','2011-05-10','CBSE Syllabus',96.7,'CBSE'),(50,'12th','St. Jhones School Manglore','2013-06-10','Science',86.7,'CBSE'),(50,'BTech','RV College of Engg.','2019-05-14','EEE',74.7,'VTU');
+
+ insert into employee_education_info(emp_id,education_type,college_name,yop,stream,percentage,university_name)
+     values(60,'CBSE','Kendravidhalaya','2011-06-13','CBSE Syllabus',96.7,'CBSE'),(60,'12th','St.Theresa School','2013-06-10','Science',76.7,'CBSE'),(60,'BE','JNU College of Engg.','2019-04-14','CSE',70.7,'JNU');
+
+insert into employee_education_info(emp_id,education_type,college_name,yop,stream,percentage,university_name)
+    values(70,'10th','MGM Manipal','2011-06-07','CBSE Syllabus',83.7,'CBSE'),(70,'12th','MGC Manglore','2013-05-11','Computer Science',80.7,'CBSE'),(70,'MSC','Srinivas College of Engg.','2019-04-14','MSC Mathematics',80.7,'VTU');
+
+insert into employee_education_info(emp_id,education_type,college_name,yop,stream,percentage,university_name)
+     values(10,'10th','NITTE School','2011-05-03','ICSE Syllabus',72.43,'ICSE'),(80,'12th','JDT Mysoor','2013-05-23','Science',76.7,'ICSE'),(80,'MSC','Amurtha Institute of Engg','2019-06-14','MSC Physics',80.7,'Rajiv Gandhi ');
+
+ insert into employee_education_info(emp_id,education_type,college_name,yop,stream,percentage,university_name)
+     values(10,'10th','KVT School','2011-05-08','CBSE Syllabus',76.7,'CBSE'),(90,'12th','Navajothi','2013-06-12','Science',86.7,'CBSE'),(90,'BTech','Manipal Institute of Technology','2019-04-10','ECE',68.7,'MAHE ');
+
+insert into employee_education_info(emp_id,education_type,college_name,yop,stream,percentage,university_name)
+     values(100,'10th','MVN School','2011-05-08','CBSE Syllabus',76.7,'CBSE'),(100,'12th','AJ PUC College','2013-06-12','Science',86.7,'CBSE'),(100,'BTech','Manipal Institute of Technology','2019-04-10','ECE',65.7,'MAHE');
+
+******************************************Table 7 Project_info ********************************************************************************************************************
+
+ insert into project_info(proj_id,proj_name,techology,start_date,end_date,location)
+     values(1000,'ORMS','Springs,Hybernate','2020-02-06','2020-03-27','Banglore'),(2000,'MDM','Android IOS,CoreJava','2020-02-10','2020-04-15','Andra Pradesh');
+
+ insert into project_info(proj_id,proj_name,techology,start_date,end_date,location)
+    values(3000,'GIS','HTML,CSS,JS,Java','2020-02-08','2020-04-11','Banglore'),(4000,'Billing Service','Springs,Hybernate,Agile','2020-02-18','2020-08-23','Kerala');
+ 
+ insert into project_info(proj_id,proj_name,techology,start_date,end_date,location)
+     values(5000,'System Integration','Springs,Android IOS','2020-02-16','2020-09-11','Chennai'),(6000,'E2E','HTML,CSS,JS,Java','2020-02-12','2020-06-11','Banglore');
+
+******************************************* Table 8 Employee_project_info *************************************************************************************************************
+
+create table employee_proj_info(emp_id int not null, proj_id int not null, primary key(emp_id,proj_id));
+
+ insert into employee_proj_info(emp_id,proj_id)
+     values(10,1000),(10,3000),(20,2000),(20,1000),(30,6000),(30,5000);
+
+ insert into employee_proj_info(emp_id,proj_id)
+    values (40,5000),(40,1000),(50,5000),(50,1000),(50,6000),(60,3000);
+
+ insert into employee_proj_info(emp_id,proj_id)
+     values(60,5000),(70,1000),(70,6000),(70,3000),(80,2000),(80,4000),(90,2000),(90,5000),(100,2000),(100,1000);
+
+***************************************************************************************************************************************************************************
+
+
+
+
