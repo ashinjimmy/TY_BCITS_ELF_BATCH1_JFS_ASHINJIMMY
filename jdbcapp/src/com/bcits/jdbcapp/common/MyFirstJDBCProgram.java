@@ -18,13 +18,15 @@ public class MyFirstJDBCProgram {
 		try {
 			// 1. Load the "Driver"
 
-			Driver driverRef = new Driver();
-			DriverManager.registerDriver(driverRef);
+			/*
+			 * Driver driverRef = new Driver(); DriverManager.registerDriver(driverRef);
+			 */
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
  
-			// 2. Get the "DB Connection" via "Driver"
+			// 2. Get the "DB Connection" via "	Driver"
 
-			String dburl = "jdbc:mysql://localhost:3306/employee_management_info?user=root&password=root";
-			con = DriverManager.getConnection(dburl);
+			  String dburl = "jdbc:mysql://localhost:3306/employee_management_info?";
+			  con = DriverManager.getConnection(dburl, "root", "root");
 
 			// 3. Issue "SQL Queries" via "Connection"
 
@@ -61,7 +63,7 @@ public class MyFirstJDBCProgram {
 
 			}
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			// 5. Close All "JDBC Objects"
