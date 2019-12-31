@@ -1,14 +1,14 @@
 package com.bcits.jdbcapp.common;
-
-
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
-public class MyFirstJDBCProgram {
+public class MyFirstJDBCProgramWithPropertyFile {
 	public static void main(String[] args) {
 		Connection con = null;
 		ResultSet rs = null;
@@ -25,8 +25,16 @@ public class MyFirstJDBCProgram {
  
 			// 2. Get the "DB Connection" via "	Driver"
 
-			  String dburl = "jdbc:mysql://localhost:3306/employee_management_info?";
-			  con = DriverManager.getConnection(dburl, "root", "root");
+			  String dburl = "jdbc:mysql://127.0.0.1:3306/employee_management_info";
+			  
+			  FileInputStream file = new FileInputStream("db.properties");
+			  Properties prop = new Properties();
+			  prop.load(file);
+			  
+			  
+			  con = DriverManager.getConnection(dburl,prop);
+			  
+			
 
 			// 3. Issue "SQL Queries" via "Connection"
 
@@ -85,4 +93,5 @@ public class MyFirstJDBCProgram {
 
 	}// End of Main()
 
-}// End of Class
+
+}

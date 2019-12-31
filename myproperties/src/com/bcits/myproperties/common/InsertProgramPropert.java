@@ -1,32 +1,43 @@
-package com.bcits.jdbcapp.common;
+package com.bcits.myproperties.common;
 
-
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
-public class MyFirstJDBCProgram {
-	public static void main(String[] args) {
+public class InsertProgramPropert {
+
+	public static void main(String[] args) { 
 		Connection con = null;
 		ResultSet rs = null;
 		Statement stmt = null;
 
 		try {
-		
+
+			FileInputStream fileInputStream = new FileInputStream("dbInfo.properties");
+			Properties properties = new Properties();
+			properties.load(fileInputStream);
+
+			String driverName = properties.getProperty("driverName");
+			String dbURL = properties.getProperty("dbURL");
+			String user = properties.getProperty("user");
+			String password = properties.getProperty("password");
+
 			// 1. Load the "Driver"
 
 			/*
 			 * Driver driverRef = new Driver(); DriverManager.registerDriver(driverRef);
 			 */
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
- 
-			// 2. Get the "DB Connection" via "	Driver"
+			Class.forName(driverName).newInstance();
 
-			  String dburl = "jdbc:mysql://localhost:3306/employee_management_info?";
-			  con = DriverManager.getConnection(dburl, "root", "root");
+			// 2. Get the "DB Connection" via " Driver"
+
+			// String dburl = "jdbc:mysql://localhost:3306/employee_management_info?";
+			con = DriverManager.getConnection(dbURL, user, password);
 
 			// 3. Issue "SQL Queries" via "Connection"
 
@@ -77,7 +88,7 @@ public class MyFirstJDBCProgram {
 				if (stmt != null) {
 					stmt.close();
 				}
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			} // End of the inner try-catch Block
 
@@ -85,4 +96,4 @@ public class MyFirstJDBCProgram {
 
 	}// End of Main()
 
-}// End of Class
+}// End of the Class
