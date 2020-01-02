@@ -41,6 +41,8 @@ public class FirstJdbcProgramWithPropertiesFile {
 			// int result = ((Number) rst.getObject(1)).intValue();
 			// int result = Integer.parseInt(rst.getObject(1).toString());
 
+			//4. Process the results returned by Sql Query
+
 			while (rst.next()) {
 				int empid = rst.getInt("emp_id");
 				String empname = rst.getString("emp_name");
@@ -72,7 +74,19 @@ public class FirstJdbcProgramWithPropertiesFile {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} // End of the try-catch block
+		} finally {
+			try {
+			if(con != null) {
+				con.close();
+			}
+			if(stmt != null) {
+				stmt.close();
+			}
+		} catch (Exception e ) {
+			e.printStackTrace();
+
+		}
+		}//End of the finally block
 
 	}// End of the main()
 

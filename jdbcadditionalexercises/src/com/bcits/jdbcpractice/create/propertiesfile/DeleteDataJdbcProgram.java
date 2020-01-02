@@ -21,19 +21,28 @@ public class DeleteDataJdbcProgram {
 			Properties properties = new Properties();
 			properties.load(file);
 
+			//1. Load the Driver
+
 			Class.forName(properties.getProperty("driverName")).newInstance();
 
+			//2. Get the DB connection via Driver
+
 			con = DriverManager.getConnection(properties.getProperty("dbUrl"),properties);
+
+			//3. Issue the Sql Query via connection
 
 			String query = " delete from employee_primary_info " + " where emp_id = 130; ";
 
 			stmt = con.createStatement();
 			int rst = stmt.executeUpdate(query);
+
+            //4. Process the result returned by the query
+
 			System.out.println(rst + " number of rows affected ");
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		} finally { // 5. Close all Jdbc objects
 			try {
 				if (con != null) {
 					con.close();
