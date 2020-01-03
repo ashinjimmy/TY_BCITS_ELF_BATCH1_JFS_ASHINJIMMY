@@ -1,0 +1,30 @@
+form{
+    
+    /* border: 1px solid black; */
+    background-color:rgb(12, 48, 59);
+    width: 583px;
+    height: 400px;
+
+    margin: auto;
+    color: white;
+    padding-left: 100px;
+    padding-top: 100px;
+   
+}
+input[type =text], input[type =password], input[type=email] {
+ 
+    width: 397px;
+    background-color:black;
+    /* margin-left: 10px; */
+    height: 20px;
+}
+
+input[type = "button1"]{
+    background-color: rgba(0, 110, 255, 0.822);
+    text-align:center ;
+    width: 400px;
+    height: 23px;
+    color: white;
+    border: 1px solid rgba(17, 17, 218, 0.863);
+
+}
