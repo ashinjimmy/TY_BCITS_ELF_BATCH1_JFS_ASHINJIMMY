@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<Html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        var firstName = 'Rama';
+        console.log('First Name ' + firstName);
+
+        var hadGF = true;
+        console.log('Had GF' + hadGF);
+
+        var father;
+        console.log('Father ' + father);
+
+        var childrens = null;
+        console.log('Childrens ' + childrens);
+
+        var noOfWives = 1;
+        console.log('No of Wives ', noOfWives);
+
+    </script>
+</head>
+
+<body>
+
+    <script>
+
+        var hobbies = ['Cricket', 'Numismatics', 'Bird Watching'];
+        console.log('Hobbies 1', hobbies[0]);
+        console.log('Hobbies 2', hobbies[1]);
+
+        for (var i = 0; i < hobbies.length; i++) {
+            console.log('My Hobbie ', hobbies[i]);
+        }
+        console.log("====================================================================");
+
+        var person = {
+            firstName: 'Dinga',
+            lastName: 'K',
+            hobbies: ['Dancing', 'singing'],
+            address: {
+                city: 'Banglore',
+                pincode: 560068,
+                state: 'Karnataka'
+
+            }
+        }
+        console.log('First Name', person.firstName);
+        console.log('Hobbies ', person.hobbies);
+        for (var i = 0; i < hobbies.length; i++) {
+            console.log('My Hobbies ', hobbies[i]);
+        }
+        console.log('Address ', person.address);
+        // for (var j = 0; j < address.length; j++) {
+        //     console.log('My Address ', address[j]);
+        // }
+
+
+    </script>
+</body>
+
+</Html>
