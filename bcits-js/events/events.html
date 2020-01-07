@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .prop {
+            /* display : block; */
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <button onclick="showAlert()">
+        Click Me!!!
+    </button>
+
+    <button onclick="createEle()">
+        Click to create an Element
+    </button>
+
+    <p>This click is to create an element</p>
+
+    <h1 id="disp" class="prop">Dispaly Properties</h1>
+    <h1 id="hide" class="prop"></h1>
+
+    <button onclick="dispalyElement()">
+        Click here to show the h1 Element
+    </button>
+
+    <button id='myBtn' onclick="dispalyElement()">
+        Click here to show the h1 Element
+    </button>
+    <!-- <button onclick="hideElement()">
+        Click here to hide the h1 Element
+    </button> -->
+
+    <p onmouseover="changeTheColourToBlue()" onmouseout="changeTheColourToBack()" id='cg'>
+        Mouse over on me </p>
+
+    <input onkeyup="showData()" id="myIpt" />
+
+    <input onkeydown="showData()" onkeydown="showDeatil()" id="myIpt" />
+
+    <input id="inp" onkeyup="getInputValue()">
+
+    <h1 id="show"></h1>
+
+    <script src="events.js"></script>
+</body>
+
+</html>
