@@ -3,7 +3,7 @@ package com.bcits.jdbcapp.abstraction;
 public class ClassY implements Connection {
 	
 	@Override
-	public Statement1 createStatement() {
+	public Statement createStatement() {
 		
 		return new ClassB();
 	}

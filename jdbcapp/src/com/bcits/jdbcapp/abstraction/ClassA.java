@@ -1,6 +1,6 @@
 package com.bcits.jdbcapp.abstraction;
 
-public class ClassA  implements Statement1 {
+public class ClassA  implements Statement {
 	
 	@Override
 	public void methodm1() {

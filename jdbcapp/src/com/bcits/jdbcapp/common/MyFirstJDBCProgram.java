@@ -65,7 +65,8 @@ public class MyFirstJDBCProgram {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		} 
+		             finally {
 			// 5. Close All "JDBC Objects"
 			try {
 				if (con != null) {

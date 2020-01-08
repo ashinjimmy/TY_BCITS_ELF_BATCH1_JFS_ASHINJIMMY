@@ -8,9 +8,9 @@ public class DriverManager {
 	public static Connection getConnection(String dbUrl) {
 		Connection con = null;
 		if(dbUrl.equals("one")) {
-			con = new ClassX();	
+			con = new ClassY();	
 		} else {
-			con = new ClassY();
+			con = new ClassX();
 		}
 		return con;
 	}
