@@ -1,4 +1,4 @@
-package com.bcits.hackerrank.practice;
+package com.bcits.hackerrank.comparatorsolutio;
 
 public class Player {
 

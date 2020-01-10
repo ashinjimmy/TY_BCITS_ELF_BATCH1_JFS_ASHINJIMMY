@@ -1,6 +1,9 @@
-package com.bcits.hackerrank.practice;
+package com.bcits.hackerrank.comparatorsolutio;
+
 
 import java.util.Comparator;
+
+import com.bcits.hackerrank.comparatorsolutio.Player;
 
 public class PlayerSort implements Comparator<Player> {
 

@@ -1,4 +1,4 @@
-package com.ty.bcits.hackerrankpractice;
+package com.bcits.hackerrank.hashsetsolution;
 
 import java.util.HashSet;
 import java.util.Scanner;

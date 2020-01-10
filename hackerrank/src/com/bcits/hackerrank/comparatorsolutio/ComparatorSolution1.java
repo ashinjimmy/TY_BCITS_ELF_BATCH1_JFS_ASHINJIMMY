@@ -1,4 +1,4 @@
-package com.bcits.hackerrank.practice;
+package com.bcits.hackerrank.comparatorsolutio;
 
 import java.util.Arrays;
 import java.util.Scanner;

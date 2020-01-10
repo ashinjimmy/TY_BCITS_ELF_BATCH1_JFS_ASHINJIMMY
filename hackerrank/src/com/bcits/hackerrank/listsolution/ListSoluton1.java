@@ -1,4 +1,4 @@
-package com.ty.bcits.hackerrankpractice;
+package com.bcits.hackerrank.listsolution;
 
 
 import java.util.ArrayList;

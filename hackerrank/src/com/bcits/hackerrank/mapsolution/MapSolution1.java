@@ -1,4 +1,4 @@
-package com.ty.bcits.hackerrankpractice;
+package com.bcits.hackerrank.mapsolution;
 
 import java.util.HashMap;
 import java.util.Map;
