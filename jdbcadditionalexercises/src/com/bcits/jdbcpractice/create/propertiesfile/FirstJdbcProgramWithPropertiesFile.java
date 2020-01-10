@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
 
-public class FirstJdbcProgramWithPropertiesFile {
+public class FirstJdbcProgramWithPropertiesFile implements AutoCloseable {
 
 	public static void main(String[] args) {
 
@@ -40,8 +40,6 @@ public class FirstJdbcProgramWithPropertiesFile {
 			rst = stmt.executeQuery(query);
 			// int result = ((Number) rst.getObject(1)).intValue();
 			// int result = Integer.parseInt(rst.getObject(1).toString());
-
-			//4. Process the results returned by Sql Query
 
 			while (rst.next()) {
 				int empid = rst.getInt("emp_id");
@@ -74,20 +72,13 @@ public class FirstJdbcProgramWithPropertiesFile {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-			if(con != null) {
-				con.close();
-			}
-			if(stmt != null) {
-				stmt.close();
-			}
-		} catch (Exception e ) {
-			e.printStackTrace();
-
-		}
-		}//End of the finally block
+		} // End of the try-catch block
 
 	}// End of the main()
+	@Override
+	public void close() throws Exception {
+		System.out.println("Closed all JDBC objects with Try with Resource");
+		
+	}
 
 }// End of the class
