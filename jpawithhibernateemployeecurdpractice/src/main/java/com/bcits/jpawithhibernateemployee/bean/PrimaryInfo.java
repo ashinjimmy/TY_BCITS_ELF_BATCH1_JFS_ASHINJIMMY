@@ -35,7 +35,7 @@ public class PrimaryInfo implements Serializable {
 	@Column
 	private String manager_id;
 
-	int getEmp_id() {
+	public int getEmp_id() {
 		return emp_id;
 	}
 	public void setEmp_id(int emp_id) {
@@ -101,6 +101,4 @@ public class PrimaryInfo implements Serializable {
 	public void setManager_id(String manager_id) {
 		this.manager_id = manager_id;
 	}
-	
-
 }

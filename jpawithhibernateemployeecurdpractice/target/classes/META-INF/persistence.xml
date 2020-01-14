@@ -8,7 +8,11 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/employee_management_info?" />
             <property name="javax.persistence.jdbc.user" value="root" />
+<<<<<<< HEAD
             <property name="javax.persistence.jdbc.password" value="Dio1054@Ash" />
+=======
+            <property name="javax.persistence.jdbc.password" value="root" />
+>>>>>>> a2090db581e52c7f9319cea87d6c71e44533f36b
         </properties>
     </persistence-unit>
 </persistence>

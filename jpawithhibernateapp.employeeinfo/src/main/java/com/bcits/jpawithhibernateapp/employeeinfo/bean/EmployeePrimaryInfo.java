@@ -12,8 +12,9 @@ import javax.persistence.Table;
 @Table(name = "employee_primary_info")
 
 public class EmployeePrimaryInfo implements Serializable {
-	@Column(name = "emp_id")
+
 	@Id
+	@Column
 	private int emp_id;
 	@Column(name = "emp_name")
 	private String emp_name;

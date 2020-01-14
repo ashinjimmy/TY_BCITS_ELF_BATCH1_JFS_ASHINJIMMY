@@ -6,7 +6,7 @@
         <class>com.bcits.jpawithhibernateapp.bean.Test2</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value= "jdbc:mysql://127.0.0.1:3306/employee_management_info?" />
+            <property name="javax.persistence.jdbc.url" value= "jdbc:mysql://127.0.0.1:3306/employee_management_info_mapping?" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="root" />
             
