@@ -1,0 +1,11 @@
+if (typeof firebase === 'undefined') throw new Error('hosting/init-error: Firebase SDK not detected. You must include it before /__/firebase/init.js');
+firebase.initializeApp({
+  "apiKey": "AIzaSyC8Hf8b1HW-ApW8xxfc5cZoPLQR_dkbzBw",
+  "appId": "1:328272355447:web:e9a31823ea6c072a9fe672",
+  "authDomain": "html-css-bootstrap.firebaseapp.com",
+  "databaseURL": "https://html-css-bootstrap.firebaseio.com",
+  "measurementId": "G-MMMK2P4CNP",
+  "messagingSenderId": "328272355447",
+  "projectId": "html-css-bootstrap",
+  "storageBucket": "html-css-bootstrap.appspot.com"
+});

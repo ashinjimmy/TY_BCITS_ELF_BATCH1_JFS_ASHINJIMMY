@@ -18,8 +18,8 @@ public class SearchEmployeeServlet extends HttpServlet {
 		resp.setContentType("text/html");
 
 		PrintWriter out = resp.getWriter();
-		out.print("html");
-		out.print("body");
+		out.print("<html>");
+		out.print("<body>");
 		out.print("<h1> Emp ID = " + empIdVal + "</h1>");
 		out.print("Emp Name = Kohli <br>");
 		out.print("Emp Age = 30 <br>");
