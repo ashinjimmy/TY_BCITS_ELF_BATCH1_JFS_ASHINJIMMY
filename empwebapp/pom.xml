@@ -8,6 +8,16 @@
   <name>empwebapp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+  
+  <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.8</version>
+    <scope>provided</scope>
+</dependency>
+  
+  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

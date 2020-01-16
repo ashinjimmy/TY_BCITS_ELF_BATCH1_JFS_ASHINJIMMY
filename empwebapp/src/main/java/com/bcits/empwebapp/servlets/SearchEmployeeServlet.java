@@ -3,6 +3,8 @@ package com.bcits.empwebapp.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,12 @@ public class SearchEmployeeServlet extends HttpServlet {
 		String empIdVal = req.getParameter("empId");
 
 		resp.setContentType("text/html");
+		
+		ServletContext context = getServletContext();
+		String myContextParamVal = context.getInitParameter("appName");
+		
+		ServletConfig config = getServletConfig();
+		String myConfigParamVal = config.getInitParameter("servletName");
 
 		PrintWriter out = resp.getWriter();
 		out.print("<html>");
@@ -25,6 +33,8 @@ public class SearchEmployeeServlet extends HttpServlet {
 		out.print("Emp Age = 30 <br>");
 		out.print("Salary = 1000000 <br>");
 		out.print("Designation = SD");
+		out.println("<h2> Application Name = "+myContextParamVal);
+		out.println("<h2> Servlet Name = "+myConfigParamVal);
 		out.print("</body>");
 		out.print("</html>");
 
