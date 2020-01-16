@@ -1,13 +1,16 @@
 package com.bcits.empwebapp.beans;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "employee_primary_info")
 public class PrimaryEmployeeInfo1 implements Serializable {
@@ -49,99 +52,5 @@ public class PrimaryEmployeeInfo1 implements Serializable {
 	@Column
 	private String password;
 
-	public String getPassword() {
-		return password;
-	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public int getEmp_id() {
-		return emp_id;
-	}
-
-	public void setEmp_id(int emp_id) {
-		this.emp_id = emp_id;
-	}
-
-	public String getEmp_name() {
-		return emp_name;
-	}
-
-	public void setEmp_name(String emp_name) {
-		this.emp_name = emp_name;
-	}
-
-	public long getEmp_mobileno() {
-		return emp_mobileno;
-	}
-
-	public void setEmp_mobileno(long emp_mobileno) {
-		this.emp_mobileno = emp_mobileno;
-	}
-
-	public String getMailId() {
-		return mailId;
-	}
-
-	public void setMailId(String mailId) {
-		this.mailId = mailId;
-	}
-
-	public Date getDob() {
-		return dob;
-	}
-
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-
-	public Date getDoj() {
-		return doj;
-	}
-
-	public void setDoj(Date doj) {
-		this.doj = doj;
-	}
-
-	public String getDesignation() {
-		return designation;
-	}
-
-	public void setDesignation(String designation) {
-		this.designation = designation;
-	}
-
-	public String getBloodgrp() {
-		return bloodgrp;
-	}
-
-	public void setBloodgrp(String bloodgrp) {
-		this.bloodgrp = bloodgrp;
-	}
-
-	public double getSalary() {
-		return salary;
-	}
-
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
-
-	public int getDept_id() {
-		return dept_id;
-	}
-
-	public void setDept_id(int dept_id) {
-		this.dept_id = dept_id;
-	}
-
-	public int getManager_id() {
-		return manager_id;
-	}
-
-	public void setManager_id(int manager_id) {
-		this.manager_id = manager_id;
-	}
 }
