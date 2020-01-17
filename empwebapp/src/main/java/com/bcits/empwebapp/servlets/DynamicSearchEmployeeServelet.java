@@ -2,10 +2,12 @@ package com.bcits.empwebapp.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,14 +25,14 @@ public class DynamicSearchEmployeeServelet extends HttpServlet {
 		
 		//Get the form data
 		
-		String empIdVal = req.getParameter("empId");
-		int empId = Integer.parseInt(empIdVal);
+	
 		
 		//Search record in db
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("emsPersistenceUnit");
 		EntityManager manager = emf.createEntityManager();
-		PrimaryEmployeeInfo1 primaryInfo = manager.find(PrimaryEmployeeInfo1.class, empId);
-		
+		String jpql = " from PrimaryEmployeeInfo1";
+		Query query = manager.createQuery(jpql);
+		List<PrimaryEmployeeInfo1 >  primaryInfo = query.getResultList();
 		//Generate Dynamic Response
 		
 		resp.setContentType("text/html");
@@ -41,11 +43,12 @@ public class DynamicSearchEmployeeServelet extends HttpServlet {
 			
 			out.println("<html>");
 			out.println("<body>");
-			
-			out.println("<h1 style='color:green'>Employee ID "+ empId + "Found <h1>" );
-			out.println("<br>Designation = "+primaryInfo.getDesignation());
-			out.println("<br>Name =  "+primaryInfo.getEmp_name());
-			out.println("<br>Salary = "+primaryInfo.getSalary());
+			for (PrimaryEmployeeInfo1 primaryEmployeeInfo1 : primaryInfo) {
+			out.println("<h1 style='color:green'>Employee  Found <h1>" );
+			out.println("<br>Designation = "+ primaryEmployeeInfo1.getDesignation());
+			out.println("<br>Name =  "+primaryEmployeeInfo1.getEmp_name());
+			out.println("<br>Salary = "+primaryEmployeeInfo1.getSalary());
+			}
 			out.println("</body>");
 			out.println("</html>");
 			
@@ -56,7 +59,7 @@ public class DynamicSearchEmployeeServelet extends HttpServlet {
 			
 			out.println("<html>");
 			out.println("<body>");
-			out.println("<h1 style='color:red'> Employee Id " + empId +" Not Found!!! </h1>" );
+			out.println("<h1 style='color:red'> Employee Id Not Found!!! </h1>" );
 			out.println("</body>");
 			out.println("</html>");
 			

@@ -10,14 +10,14 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Data
+ @Data
 @Entity
 @Table(name = "employee_primary_info")
 public class PrimaryEmployeeInfo1 implements Serializable {
 
 	@Id
 	@Column
-	private int emp_id;
+	private int empId;
 	
 	@Column(name = "emp_name")
 	private String emp_name;

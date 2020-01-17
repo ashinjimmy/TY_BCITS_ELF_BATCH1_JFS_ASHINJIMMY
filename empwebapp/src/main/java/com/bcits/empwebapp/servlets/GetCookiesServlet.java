@@ -22,7 +22,8 @@ public class GetCookiesServlet extends HttpServlet {
 
 		out.println("<html>");
 		out.println("<body>");
-
+		
+         
 		for (Cookie cookie : cookies) {
 			
            

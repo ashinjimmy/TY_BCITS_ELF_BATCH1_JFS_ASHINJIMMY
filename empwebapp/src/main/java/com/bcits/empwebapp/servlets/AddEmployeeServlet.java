@@ -47,7 +47,7 @@ public class AddEmployeeServlet extends HttpServlet {
 		}
 		PrimaryEmployeeInfo1 primaryInfo = new PrimaryEmployeeInfo1();
 		
-		primaryInfo.setEmp_id(Integer.parseInt(empIdVal));
+		primaryInfo.setEmpId(Integer.parseInt(empIdVal));
 		primaryInfo.setEmp_name(nameVal);
 		primaryInfo.setDesignation(designationVal);
 		primaryInfo.setSalary(Double.parseDouble(salaryVal));

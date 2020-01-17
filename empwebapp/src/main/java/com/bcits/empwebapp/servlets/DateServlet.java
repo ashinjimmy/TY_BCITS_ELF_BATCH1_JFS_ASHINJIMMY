@@ -13,6 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 
 public class DateServlet extends HttpServlet {
 	
+	public DateServlet() {
+		System.out.println("This is Instantiation Phase !!");
+	
+	}
+	@Override
+	public void init() throws ServletException {
+		
+		System.out.println("This is Intialization Phase!!");
+		
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -38,7 +49,7 @@ public class DateServlet extends HttpServlet {
 		out.println("</body>");
 		out.println("</html>");
 		
-	
+	 System.out.println("This is Distruction phase!!");
 
 	}//End of doGet()
 

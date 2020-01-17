@@ -18,7 +18,7 @@ public class CreateCookiesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Cookie myCookie = new Cookie("enpName", "Sonu");
-		myCookie.setMaxAge(7*24*60*60);
+		myCookie.setMaxAge(7*24*60*60); // making cookie persistent for 7 days in seconds
 		resp.addCookie(myCookie);
 
 		PrintWriter out = resp.getWriter();
