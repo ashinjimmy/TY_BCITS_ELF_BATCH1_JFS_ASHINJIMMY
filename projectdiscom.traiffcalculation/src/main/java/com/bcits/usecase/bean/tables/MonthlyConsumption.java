@@ -15,10 +15,13 @@ import lombok.Data;
 @Table(name = "Monthly_Consumption")
 public class MonthlyConsumption implements Serializable {
 	
-	@EmbeddedId
+	
 	private long initialReadingUnits;
 	@Column
 	private long finalReadingUnits;
 	@Column
 	private int totalUnits;
+	@EmbeddedId
+	@Column
+	private  MonthlyConsumptionCK  monthlyConsumptionCK;
 }

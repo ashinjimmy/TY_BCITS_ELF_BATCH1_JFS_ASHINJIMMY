@@ -13,4 +13,5 @@ public class MonthlyConsumptionCK implements Serializable {
 	
 	private int  rrNumber;
 	private String region;
+	
 }

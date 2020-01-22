@@ -11,11 +11,7 @@ public class TestForDbCreation {
 		EntityManager manager = null;
 		EntityTransaction transaction = null;
 		EmployeeMaster primary = new EmployeeMaster();
-		primary.setName("Mark");
-		primary.setEmpId(100);
-		primary.setDesignation("Admin");
-		primary.setEmailId("mark10@gmail.com");
-		primary.setPassword("Mark123#");
+	
 
 		try {
 			EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("projectPersistenceUnit");
