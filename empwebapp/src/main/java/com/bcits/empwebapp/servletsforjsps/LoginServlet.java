@@ -1,0 +1,57 @@
+package com.bcits.empwebapp.servletsforjsps;
+
+import java.io.IOException;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.bcits.empwebapp.beans.PrimaryEmployeeInfo1;
+@WebServlet("/login2")
+public class LoginServlet  extends HttpServlet{
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	// Get the form
+		int empIdVal = Integer.parseInt(req.getParameter("empId"));
+		String password = req.getParameter("passsword");
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("emsPersistenceUnit");
+		EntityManager manager = emf.createEntityManager();
+		
+		String jpql = " from PrimaryEmployeeInfo1 where empId=:empId and password=:pwd ";
+		Query query = manager.createQuery(jpql);
+		query.setParameter("empId", empIdVal);
+		query.setParameter("pwd", password);
+		
+		PrimaryEmployeeInfo1 employeePrimaryInfo = null;
+		
+		try {
+			employeePrimaryInfo = (PrimaryEmployeeInfo1) query.getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(employeePrimaryInfo != null) {
+			//Valid Credentials
+			
+			HttpSession session = req.getSession(true);
+			session.setAttribute("loggedInEmpInfo" ,employeePrimaryInfo );
+			req.getRequestDispatcher("./homePage.jsp").forward(req, resp);
+		} else {
+			//Invvalid Credentials
+			
+			req.setAttribute("msg","Invalid EmployeeId / Password");
+			req.getRequestDispatcher("/loginForm.jsp").forward(req, resp);
+		}
+		
+	}
+
+}
