@@ -33,7 +33,8 @@ public class EmployeeTest {
 		System.out.println("Enter the Employee Name : ");
 	    employeeBean2.setName(scanner.nextLine());
 		System.out.println("Enter the age of Employee : ");
-		employeeBean2.setAge(scanner.nextInt());
+		employeeBean2
+		.setAge(scanner.nextInt());
 		
 		System.out.println("Name = "+employeeBean.getName());
 		System.out.println("Age  = "+employeeBean.getAge());

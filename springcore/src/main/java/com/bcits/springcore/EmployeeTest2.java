@@ -10,7 +10,7 @@ public class EmployeeTest2 {
 	
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("beans2.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("importAllConfig.xml");
 		EmployeeBean1 employeeBean = context.getBean("employee", EmployeeBean1.class);
 		
 		System.out.println("Nmae = "+ employeeBean.getName());
