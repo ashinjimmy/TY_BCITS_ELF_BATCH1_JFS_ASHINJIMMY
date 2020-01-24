@@ -16,8 +16,6 @@ public class RequestDeligationController {
 	@GetMapping("/forward")
 	public String forwardRequest() {
 		return "forward:loginForm";
-	}
-	
-	
-	
+	}//End of forwardRequest()
+		
 }//End of Class

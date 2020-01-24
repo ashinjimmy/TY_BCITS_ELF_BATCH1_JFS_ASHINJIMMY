@@ -20,7 +20,6 @@ public class SpringMVCController {
 		ModelAndView modelAndView = new ModelAndView();
 		/* modelAndView.setViewName("/WEB-INF/views/message.jsp"); */
 		modelAndView.setViewName("message");
-
 		return modelAndView;
 	}// End of displayWelcomeMessage() (Handler method)
 
@@ -31,7 +30,6 @@ public class SpringMVCController {
 		ModelAndView modelAndView = new ModelAndView();
 		/* modelAndView.setViewName("/WEB-INF/views/searchEmployee.jsp"); */
 		modelAndView.setViewName("searchEmployee");
-
 		return modelAndView;
 	}// End of searchEmployee()
 
@@ -50,9 +48,7 @@ public class SpringMVCController {
 	public ModelAndView displayLoginForm(ModelAndView modelAndView) {
 		/* modelAndView.setViewName("/WEB-INF/views/loginForm.jsp"); */
 		modelAndView.setViewName("loginForm");
-
 		return modelAndView;
-
 	}// End of displayLoginForm()
 
 	@RequestMapping(path = "/login1", method = RequestMethod.POST)
@@ -68,8 +64,6 @@ public class SpringMVCController {
 		return modelAndView;
 	}// End of login1()
 
-	
-	
 	// Alternate method 2
 
 	@PostMapping("/login2")
@@ -77,11 +71,10 @@ public class SpringMVCController {
 			@RequestParam(name = "password") String password, ModelAndView modelAndView) {
 		modelAndView.addObject("empId", empId);
 		modelAndView.addObject("pwd", password);
-		modelAndView.setViewName("/WEB-INF/views/userDetails.jsp");
+		/* modelAndView.setViewName("/WEB-INF/views/userDetails.jsp"); */
+		modelAndView.setViewName("userDetails");
 		return modelAndView;
 	}// End of login2()
-	
-	
 
 	// Alternate method 3
 
@@ -89,22 +82,15 @@ public class SpringMVCController {
 	public String login3(int empId, String password, ModelMap modelMap) {
 		modelMap.addAttribute("empId", empId);
 		modelMap.addAttribute("pwd", password);
-
-		return "/WEB-INF/views/userDetails.jsp";
+		/* return "/WEB-INF/views/userDetails.jsp"; */
+		return "userDetails";
 	}// End of login3()
-	
-	
 
 	@PostMapping("/login4")
-	public String login4(UserBean userBean,String name, ModelMap modelMap) {
+	public String login4(UserBean userBean, String name, ModelMap modelMap) {
 		modelMap.addAttribute("userBean", userBean);
-		modelMap.addAttribute("name",name);
-
+		modelMap.addAttribute("name", name);
+		/* return "/WEB-INF/views/userDetails2.jsp"; */
 		return "userDetails2";
 	}// End of login4()
-	
-
-
-	
-
 }// End of Class
