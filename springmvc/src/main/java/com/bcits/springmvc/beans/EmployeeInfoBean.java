@@ -7,14 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import lombok.Data;
 
 
 @Data
 @Entity
-@Table(name = "employee_primary_info")
+@Table(name = "primary_employee_info")
 public class EmployeeInfoBean {
 	
 	@Id
@@ -31,16 +32,18 @@ public class EmployeeInfoBean {
 	private String mailId;
 	
 	@Column
+	@DateTimeFormat(iso=ISO.DATE)
 	private Date dob;
 	
 	@Column
+	@DateTimeFormat(iso=ISO.DATE)
 	private Date doj;
 	
 	@Column
 	private String designation;
 	
 	@Column
-	private String bloodgrp;
+	private String bloodGrp;
 	
 	@Column
 	private double salary;
@@ -53,7 +56,5 @@ public class EmployeeInfoBean {
 	
 	@Column
 	private String password;
-
-
 
 }

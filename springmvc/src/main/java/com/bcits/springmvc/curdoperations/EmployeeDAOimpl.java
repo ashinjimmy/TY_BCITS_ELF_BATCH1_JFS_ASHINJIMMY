@@ -1,4 +1,4 @@
-package com.bcits.springmvc.curdoperations;
+ package com.bcits.springmvc.curdoperations;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 	 * private EntityManagerFactory emf =
 	 * Persistence.createEntityManagerFactory("springPersistenceUnit");
 	 */
-	@PersistenceUnit //in case of not working put @AutoWired 
+	@PersistenceUnit // in case of not working put @AutoWired
 	private EntityManagerFactory emf;
 
 	@Override
@@ -50,8 +50,7 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 		boolean isDeleted = false;
 		EntityManager manager = emf.createEntityManager();
 		EmployeeInfoBean info = manager.find(EmployeeInfoBean.class, empId);
-	
-		
+
 		if (info != null) {
 			EntityTransaction transaction = manager.getTransaction();
 			transaction.begin();
@@ -80,7 +79,6 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 	@Override
 	public List<EmployeeInfoBean> getallEmployees() {
 
-		
 		EntityManager manager = emf.createEntityManager();
 		String jpql = " from EmployeeInfoBean";
 		Query query = manager.createQuery(jpql);
@@ -95,9 +93,26 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 	}
 
 	@Override
-	public boolean updateEmployee(EmployeeInfoBean bean) {
+	public boolean updateEmployee(EmployeeInfoBean emBean) {
+		boolean isUpdated = false;
 
-		return false;
+		EntityManager manager = emf.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		try {
+			transaction.begin();
+			EmployeeInfoBean info = manager.find(EmployeeInfoBean.class,emBean.getEmpId());
+			info.setSalary(emBean.getSalary());
+			info.setEmpMobileno(emBean.getEmpMobileno());
+			info.setDesignation(emBean.getDesignation());
+			info.setEmpName(emBean.getEmpName());
+			transaction.commit();
+			isUpdated = true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();	
+		}
+		return isUpdated;
+		
 	}
 
 	@Override
@@ -111,5 +126,5 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 
 			return null;
 		}
-	}//End of authenticate()
+	}// End of authenticate()
 }// End of class

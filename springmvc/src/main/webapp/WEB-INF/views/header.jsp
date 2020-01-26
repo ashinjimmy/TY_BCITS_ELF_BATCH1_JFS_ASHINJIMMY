@@ -12,10 +12,10 @@
 <tr style="background:aqua; color:white; height: 30px">
 
 <th><a href="./searchEmpForm">Search Employee</a></th>
-<th><a href="">Add Employee</a></th>
-<th><a href="">Update Employee</a></th>
+<th><a href="./addAllEmployee">Add Employee</a></th>
+<th><a href="./updateEmpForm">Update Employee</a></th>
 <th><a href="./deleteEmpForm">Delete Employee</a></th>
-<th><a href="">See All Employee</a></th>
+<th><a href="./seeAllEmployee">See All Employee</a></th>
 
 </tr>
 </table>

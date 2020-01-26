@@ -22,8 +22,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public boolean addEmployee(EmployeeInfoBean bean) {
-		// TODO Auto-generated method stub
-		return false;
+		return dao.addEmployee(bean);
 	}
 
 	@Override
@@ -34,14 +33,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public boolean updateEmployee(EmployeeInfoBean bean) {
-		// TODO Auto-generated method stub
-		return false;
+		return dao.updateEmployee(bean);
 	}
 
 	@Override
 	public List<EmployeeInfoBean> getallEmployees() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return dao.getallEmployees();
 	}
 
 	@Override

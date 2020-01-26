@@ -17,7 +17,6 @@ public EmployeeInfoBean authenticate(int empId, String password);
 	
 	public boolean updateEmployee (EmployeeInfoBean bean);
 	
-	
 	public List<EmployeeInfoBean> getallEmployees();
 
 }//End of Service

@@ -16,7 +16,6 @@ public interface EmployeeDAO {
 	
 	public boolean updateEmployee (EmployeeInfoBean bean);
 	
-	
 	public List<EmployeeInfoBean> getallEmployees();
 
 }
