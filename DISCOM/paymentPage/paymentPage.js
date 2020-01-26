@@ -3,7 +3,7 @@ var uPassword=document.getElementById("password");
 var uCheck=document.getElementById("checkbox");
 var savebox=document.getElementById("savebox");
 var pTag=document.getElementById("pele");
-var pTag2=document.getElementById("eele");
+var cdNo=document.getElementById("cardNo");
 var success=document.getElementById("success");
 
 function passwordValidation(password) {
@@ -23,8 +23,8 @@ function passwordValidation(password) {
 }
 function validateForm() {
 
-   if (uPassword.value.trim().length<5 && uName.value.trim().length<5) {
-        pTag2.style.display="block";
+   if (cdNo.value.trim().length<5 && cdNo == upperV && cdNo == lowerV) {
+        cdNo.style.display="block";
         pTag.style.display="block";
         uName.style.border="2px solid red";
         uPassword.style.border="2px solid red";
@@ -73,5 +73,3 @@ function checkBox() {
     }
     
 }
-
-

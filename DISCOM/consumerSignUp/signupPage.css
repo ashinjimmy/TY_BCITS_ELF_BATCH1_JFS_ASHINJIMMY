@@ -1,0 +1,29 @@
+#title{
+    text-align: center;
+    padding-top: 50px;
+    color: rgb(15, 65, 228);
+}
+
+form {
+
+    border-style: solid;
+    border-color: rgb(8, 70, 70);
+    padding-top: 60px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 80px;
+    border-radius: 50px;
+   
+    
+}
+
+body{
+    color: black;
+    /* background-image: url(/Consumerlogin/texture-1504364_960_720.jpg); */
+    background-color:honeydew;
+ 
+}
+
+.my-card{
+    box-shadow: 0 0 2px;
+}
