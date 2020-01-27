@@ -1,14 +1,19 @@
 package com.bcits.springmvc.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
@@ -16,9 +21,17 @@ import com.bcits.springmvc.beans.EmployeeInfoBean;
 import com.bcits.springmvc.curdoperations.EmployeeDAO;
 import com.bcits.springmvc.curdoperations.EmployeeDAOimpl;
 import com.bcits.springmvc.service.EmployeeService;
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 @Controller
 public class EmployeeController {
+
+	
+	// For Setting the date in the format  yyyy-MM-dd throughout the controller class handler methods
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		CustomDateEditor dateEditor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
+		binder.registerCustomEditor(Date.class, dateEditor);
+	}
 
 	@Autowired
 	private EmployeeService service;
@@ -61,7 +74,7 @@ public class EmployeeController {
 	}// End of displayEmployeeForm()
 
 	@GetMapping("/search")
-	public String searchEmployee(int empId, HttpSession session, ModelMap modelMap) {
+	public String searchEmployee(Integer empId, HttpSession session, ModelMap modelMap) {
 
 		if (session.getAttribute("loggedInEmpInfo") != null) {
 			// Valid Session
@@ -97,7 +110,7 @@ public class EmployeeController {
 	} // End of displayDeleteEmployeeForm()
 
 	@GetMapping("/delete")
-	public String deleteEmployee(int empId,
+	public String deleteEmployee(Integer empId,
 			@SessionAttribute(name = "loggedInEmpInfo", required = false) EmployeeInfoBean employeeInfoBean,
 			ModelMap modelMap) {
 
@@ -152,18 +165,17 @@ public class EmployeeController {
 		}
 
 	}// End of addAllEmployeeForm()
-	
-	
+
 	@PostMapping("/addEmp")
-	public String addEmpFormDetails( EmployeeInfoBean info,
-			@SessionAttribute(name = "loggedInEmpInfo", required = false ) EmployeeInfoBean employeeInfoBean,
+	public String addEmpFormDetails(EmployeeInfoBean info,
+			@SessionAttribute(name = "loggedInEmpInfo", required = false) EmployeeInfoBean employeeInfoBean,
 			ModelMap modelMap) {
-		if(employeeInfoBean != null) {
-			//Valid Session
-			if(service.addEmployee(info)) {
+		if (employeeInfoBean != null) {
+			// Valid Session
+			if (service.addEmployee(info)) {
 				/* modelMap.addAttribute("employeeInfoBean", employeeInfoBean); */
 				modelMap.addAttribute("msg", " Added  Details Successfully!!!");
-			}else {
+			} else {
 				modelMap.addAttribute("errMsg", "Details are Already Exist!!!");
 			}
 			return "addAllEmpForm";
@@ -172,39 +184,40 @@ public class EmployeeController {
 			modelMap.addAttribute("errMsg", "Please Login First..");
 			return "empLoginForm";
 		}
-	}//End of addEmpFormDetails()
-	
-	
+	}// End of addEmpFormDetails()
+
 	@GetMapping("/updateEmpForm")
-	public String updateEmpFormDetails(@SessionAttribute(name="loggedInEmpInfo",required = false) EmployeeInfoBean employeeInfoBean, 
+	public String updateEmpFormDetails(
+			@SessionAttribute(name = "loggedInEmpInfo", required = false) EmployeeInfoBean employeeInfoBean,
 			ModelMap modelMap) {
-		if(employeeInfoBean != null) {
-			//Valid Session
+		if (employeeInfoBean != null) {
+			// Valid Session
 			return "updateEmpForm";
-			
+
 		} else {
-			modelMap.addAttribute("errMsg","Please Login!!!");
+			modelMap.addAttribute("errMsg", "Please Login!!!");
 			return "empLoginForm";
 		}
-	}//End of updateEmpFormDetails()
-	
+	}// End of updateEmpFormDetails()
+
 	@PostMapping("/updateEmp")
-	public String updateDetails(EmployeeInfoBean infoBean, @SessionAttribute( name = "loggedInEmpInfo", required = false)
-			EmployeeInfoBean employeeInfoBean, ModelMap modelMap) {
-		if(employeeInfoBean != null) {
-			//Valid Session
-				if (service.updateEmployee(infoBean)) {
-					modelMap.addAttribute("msg", "Record Updated successfully");
-				} else {
-					modelMap.addAttribute("errMsg", "Employee Id not Found");
-				}
-				}else {
-				// invalid session
-				modelMap.addAttribute("errMsg", "Please Login First");
-				return "empLoginForm";
+	public String updateDetails(EmployeeInfoBean infoBean,
+			@SessionAttribute(name = "loggedInEmpInfo", required = false) EmployeeInfoBean employeeInfoBean,
+			ModelMap modelMap) {
+		if (employeeInfoBean != null) {
+			// Valid Session
+			if (service.updateEmployee(infoBean)) {
+				modelMap.addAttribute("msg", "Record Updated successfully");
+			} else {
+				modelMap.addAttribute("errMsg", "Employee Id not Found");
 			}
+		} else {
+			// invalid session
+			modelMap.addAttribute("errMsg", "Please Login First");
+			return "empLoginForm";
+		}
 		return "updateEmpForm";
-		
-	}//End of updateEmployee()
+
+	}// End of updateEmployee()
 
 }// End of Class

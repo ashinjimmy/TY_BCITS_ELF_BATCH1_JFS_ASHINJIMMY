@@ -1,9 +1,15 @@
 package com.bcits.springmvc.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,9 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bcits.springmvc.beans.UserBean;
 
+import lombok.Data;
+
 @Controller
 public class SpringMVCController {
-
+	//For the date format conversion 
+	
 	@RequestMapping(path = "/hello", method = RequestMethod.GET)
 	public ModelAndView displayWelcomeMessage() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -79,7 +88,7 @@ public class SpringMVCController {
 	// Alternate method 3
 
 	@PostMapping("/login3") // Here the variable name should be same
-	public String login3(int empId, String password, ModelMap modelMap) {
+	public String login3(Integer empId, String password, ModelMap modelMap) {
 		modelMap.addAttribute("empId", empId);
 		modelMap.addAttribute("pwd", password);
 		/* return "/WEB-INF/views/userDetails.jsp"; */

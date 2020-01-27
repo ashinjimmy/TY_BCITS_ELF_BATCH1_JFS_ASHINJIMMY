@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bcits.springmvc.beans.EmployeeInfoBean;
 import com.bcits.springmvc.curdoperations.EmployeeDAO;
+import com.bcits.springmvc.exceptionhandler.EmployeeException;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -16,7 +17,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
 	@Override
-	public EmployeeInfoBean authenticate(int empId, String password) {
+	public EmployeeInfoBean authenticate(Integer empId, String password) {
 	return dao.authenticate(empId, password);
 	}
 
@@ -26,9 +27,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public EmployeeInfoBean getEmployee(int EempId) {
+	public EmployeeInfoBean getEmployee(Integer EempId) {
 		
-		return dao.getEmployee(EempId);
+		if(EempId < 1) {
+			throw new EmployeeException("Invalid Employee ID !");
+		}
+		EmployeeInfoBean employeeInfoBean = dao.getEmployee(EempId);
+		if(employeeInfoBean == null) {
+			throw new EmployeeException("Employee ID Not Found!");
+		}
+		return employeeInfoBean;
 	}
 
 	@Override
@@ -43,17 +51,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public boolean deleteEmployee(int empId) {
+	public boolean deleteEmployee(Integer empId) {
 	
 		if(empId < 1) {
 		return false;
 	}
 		return dao.deleteEmployee(empId);
-	}//End of deleteEmployee()
-
-	
-
-	
-
-	
+	}//End of deleteEmployee()	
 }

@@ -40,35 +40,70 @@
 					<tr>
 						<td>Employee ID</td>
 						<td>:</td>
-						<td><input type="number" name="empId" required></td>
+						<td><input type="number" name="empId" ></td>
 					</tr>
 
 
 					<tr>
 						<td>Employee Name</td>
 						<td>:</td>
-						<td><input type="text" name="empName" required></td>
+						<td><input type="text" name="empName" ></td>
 					</tr>
 
 					<tr>
 						<td>Designation</td>
 						<td>:</td>
-						<td><input type="text" name="designation" required></td>
+						<td><input type="text" name="designation" ></td>
 					</tr>
 
 
 					<tr>
 						<td>Salary</td>
 						<td>:</td>
-						<td><input type="text" name="salary" required></td>
+						<td><input type="text" name="salary"></td>
 					</tr>
+					
+						<tr>
+						<td>Blood Group</td>
+						<td>:</td>
+						<td><input type="text" name="bloodgrp"></td>
+					</tr>
+					
+						<tr>
+						<td>Email Id</td>
+						<td>:</td>
+						<td><input type="email" name="mailId"></td>
+					</tr>
+					
 
 					<tr>
 						<td>Mobile Number</td>
 						<td>:</td>
-						<br>
-						<td><input type="tel" name="empMobileNo" required></td>
-						<br>
+						<td><input type="number" name="empMobileNo"></td>
+					</tr>
+					
+					<tr>
+						<td>Manger ID</td>
+						<td>:</td>
+						<td><input type="number" name="managerId" ></td>
+					</tr>
+					
+					<tr>
+						<td>Department Id</td>
+						<td>:</td>
+						<td><input type="number" name="deptId" ></td>
+					</tr>
+					
+						<tr>
+						<td>Date of Birth</td>
+						<td>:</td>
+						<td><input type="date" name="dob" ></td>
+					</tr>
+					
+						<tr>
+						<td>Date of Join</td>
+						<td>:</td>
+						<td><input type="date" name="doj" required></td>
 					</tr>
 
 					<tr>

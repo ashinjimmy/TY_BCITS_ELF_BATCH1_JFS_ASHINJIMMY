@@ -15,44 +15,44 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "primary_employee_info")
+@Table(name = "employee_primary_info")
 public class EmployeeInfoBean {
 	
 	@Id
 	@Column
-	private int empId;
+	private Integer empId;
 	
 	@Column
 	private String empName;
 	
 	@Column
-	private long empMobileno;
+	private Long empMobileno;
 	
     @Column
 	private String mailId;
 	
 	@Column
-	@DateTimeFormat(iso=ISO.DATE)
+	/* @DateTimeFormat(iso=ISO.DATE) */
 	private Date dob;
 	
 	@Column
-	@DateTimeFormat(iso=ISO.DATE)
+	/* @DateTimeFormat(iso=ISO.DATE) */
 	private Date doj;
 	
 	@Column
 	private String designation;
 	
 	@Column
-	private String bloodGrp;
+	private String bloodgrp;
 	
 	@Column
-	private double salary;
+	private Double salary;
 	
 	@Column
-	private int deptId;
+	private Integer deptId;
 	
 	@Column
-	private int managerId;
+	private Integer managerId;
 	
 	@Column
 	private String password;

@@ -6,13 +6,13 @@ import com.bcits.springmvc.beans.EmployeeInfoBean;
 
 public interface EmployeeDAO {
 	
-	public EmployeeInfoBean authenticate(int empId, String password);
+	public EmployeeInfoBean authenticate(Integer empId, String password);
 	
 	public boolean addEmployee(EmployeeInfoBean bean);
 	
-	public boolean deleteEmployee(int empId);
+	public boolean deleteEmployee(Integer empId);
 	
-	public EmployeeInfoBean getEmployee(int EempId);
+	public EmployeeInfoBean getEmployee(Integer EempId);
 	
 	public boolean updateEmployee (EmployeeInfoBean bean);
 	
