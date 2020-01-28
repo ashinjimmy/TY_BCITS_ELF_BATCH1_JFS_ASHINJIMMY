@@ -1,0 +1,17 @@
+{
+	"deptId": 11,
+	"empName": "Rajdeep",
+	"bloodgrp": "B+ve",
+	"empMobileno": 7907170787,
+	"mailId": "rajdeep@email.com",
+	"dob": 1580209528806,
+	"doj": 1580209528806,
+	"designation": "SSD",
+	"salary": null,
+	"managerId": 23,
+	"userOtherInfoBean": {
+		"gender": "male",
+		"adharNumber": 123456789
+	},
+	"employeeID": 9999
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user-info>
+    <user-id>9999</user-id>
+    <empName>Pavan</empName>
+    <empMobileno>7907170787</empMobileno>
+    <mailId>rajdeep@email.com</mailId>
+    <dob>2020-01-28T13:10:22.753+05:30</dob>
+    <doj>2020-01-28T13:10:22.753+05:30</doj>
+    <designation>SSD</designation>
+    <bloodgrp>B+ve</bloodgrp>
+    <deptId>11</deptId>
+    <managerId>23</managerId>
+    <password>qwerty</password>
+    <user-other-info>
+        <gender>M</gender>
+        <aadhar>123456789</aadhar>
+    </user-other-info>
+</user-info>

@@ -1,0 +1,31 @@
+{
+	"deptId": 11,
+	"empName": "Rajdeep",
+	"bloodgrp": "B+ve",
+	"empMobileno": 7907170787,
+	"mailId": "rajdeep@email.com",
+	"dob": 1580210393202,
+	"doj": 1580210393202,
+	"designation": "SSD",
+	"salary": null,
+	"managerId": 23,
+	"userOtherInfoBean": {
+		"gender": "male",
+		"adharNumber": 123456789
+	},
+	"userAddressList": [
+		{
+			"houseNum": 1,
+			"street": "ABC Str",
+			"city": "BLR",
+			"addressType": "T"
+		},
+		{
+			"houseNum": 55,
+			"street": "XYZ Str",
+			"city": "HDR",
+			"addressType": "P"
+		}
+	],
+	"employeeID": 9999
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Employee-info>
+    <employee-id>9999</employee-id>
+    <empName>Rajdeep</empName>
+    <empMobileno>7907170787</empMobileno>
+    <mailId>rajdeep@email.com</mailId>
+    <dob>2020-01-28</dob>
+    <doj>2020-01-28</doj>
+    <designation>SSD</designation>
+    <bloodgrp>B+ve</bloodgrp>
+    <deptId>11</deptId>
+    <managerId>23</managerId>
+    <password>qwerty</password>
+</Employee-info>

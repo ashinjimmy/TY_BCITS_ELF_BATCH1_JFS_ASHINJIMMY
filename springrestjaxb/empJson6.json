@@ -1,0 +1,14 @@
+{
+	"departmentId": 11,
+	"empName": "Rajdeep",
+	"salary": null,
+	"empMobileno": 7907170787,
+	"mailId": "rajdeep@email.com",
+	"dob": 1580208552292,
+	"doj": 1580208552292,
+	"designation": "SSD",
+	"bloodgrp": "B+ve",
+	"managerId": 23,
+	"password": "qwerty",
+	"employeeID": 9999
+}
