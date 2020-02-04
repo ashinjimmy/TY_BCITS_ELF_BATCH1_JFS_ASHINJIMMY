@@ -9,41 +9,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Consumer Login</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="/bootstrap-4.4.1-dist/bootstrap-4.4.1-dist/css/bootstrap.min.css">
 
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body>
-
-	<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-		<img height="70px" src="/Consumerlogin/Dislogo.gif" alt="">
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav offset-md-2 pl-5">
-				<li class="nav-item active">
-					<h3 class=" active">
-						<a class="nav-link" href="#">DISCOM ELECTRICITY PRIVATE
-							LIMITED <span class="sr-only"></span>
-						</a>
-					</h3>
-				</li>
+<jsp:include page="header.jsp"></jsp:include>
 
 
-			</ul>
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link active"
-					href="/HomePage/mainhomepage.html"><i class="fas fa-home"></i>Home</a>
-				</li>
-				<li class="nav-item active"><a class="nav-link active" href="">About</a>
-				</li>
-			</ul>
-
-
-		</div>
-	</nav>
 	<div
 		class="col-md-4 col-sm-12  col-10 col-4 offset-md-4   offset-1 card card-body mt-5 my-card">
 
-		<form action="/HomePage/employeehomepage.html"
+		<form action="#"
 			onsubmit="return validateForm()">
 			<div id="success" class="alert alert-success" style="display: none;">
 				login <strong>Success!</strong>
@@ -53,10 +40,10 @@
 					<i class="fas fa-user-circle"></i>
 				</h1>
 			</div>
-			<h2 class="text-center">Employee Login</h2>
+			<h2 class="text-center">EMPLOYEE LOGIN</h2>
 			<div class="form-group">
-				<label for="exampleInputEmail1">Email address</label> <input
-					id="email" type="email" placeholder="vailidemail@gmail.com"
+				<label for="exampleInputEmail1">Employee Id</label> <input
+					id="email" type="email" placeholder="Admin provided email Id"
 					class="form-control">
 				<p id="eele" style="color: red; display: none; font-size: 12px;">provide
 					valid emailId</p>
@@ -76,26 +63,14 @@
 						class="form-check-input"> <label class="form-check-label"
 						for="exampleCheck1">Show Password</label>
 				</div>
-
-				<div class="float-left offset-md-4 ">
-					<input id="savebox" type="checkbox" class="form-check-input ">
-					<label class="form-check-label" for="exampleCheck1">Save
-						Password</label>
-				</div>
-				</p>
-			</div>
+				
 			<button type="submit"
 				class="btn btn-outline-primary col-md-8 offset-md-2 mt-3">Login</button>
 		</form>
-		<!-- <p class="text-center mt-1">
-            New user ?
-            <a class="my-text" href="/Consumerlogin/Signuppage.html">Register</a></p> -->
-
 	</div>
-
-	<script src="/Employeelogin/employeeloginpage.js"></script>
-	<script src="/jquery/jquery-3.4.1.js"></script>
-	<script src="/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+	<script src="${js}/jquery/jquery-3.4.1.js"></script>
+	<script src="${js}/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+	<script src="${css}/employeeloginpage.js"></script>
 
 </body>
 </html>

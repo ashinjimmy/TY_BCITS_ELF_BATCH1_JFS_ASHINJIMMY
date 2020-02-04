@@ -37,8 +37,6 @@
         <img height="70px"
             src="${images}/Dislogo.gif"
             alt="">
-        </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav offset-md-2 pl-5">
                 <li class="nav-item active">
@@ -51,7 +49,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link active" href="./mainHomePage"><i class="fas fa-home"></i>Home</a>
+                    <a class="nav-link active" href="./mainHomePage"><i class="fas fa-home"></i></a>
                  </li>
                  <li class="nav-item active">
                     <a class="nav-link active" href="">About</a>

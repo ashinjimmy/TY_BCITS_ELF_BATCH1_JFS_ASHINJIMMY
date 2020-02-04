@@ -40,11 +40,9 @@
 
 			</ul>
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link active"
-					href="./mainHomePage"><i class="fas fa-home"></i>Home</a>
+				<li class="nav-item active"><a class="nav-link active" href="">&nbsp;About Us</a>
 				</li>
-				<li class="nav-item active"><a class="nav-link active" href="">AboutUs</a>
-				</li>
+				 
 			</ul>
 
 
@@ -52,14 +50,10 @@
 	</nav>
 
 	<div class="my-btn ">
-		<a class="float-left" href="./consumerLogin"><button
-				type="button"
-				class="btn btn-md-lg btn-sm-lg btn-lg mr-5 btn-outline-primary ">Consumer
-				Login</button></a> <a class="float-left"
-			href="#"><button
-				type="button"
-				class="btn btn-md-lg btn-sm-lg btn-lg  btn-outline-primary">Employee
-				Login</button></a>
+		<a class="float-left" href="./consumerLogin"><button type="button"	class="btn btn-md-lg btn-sm-lg btn-lg mr-5 btn-outline-primary ">
+		Consumer Login</button></a> 
+				<a class="float-left" href="./employeeLoginPage"><button type="button" class="btn btn-md-lg btn-sm-lg btn-lg  btn-outline-primary">
+				Employee Login</button></a>
 	</div>
 
 	<script src="${js}/jquery-3.4.1.js"></script>

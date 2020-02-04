@@ -18,47 +18,14 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="/bootstrap-4.4.1-dist/bootstrap-4.4.1-dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="${css}/consumerLogin.css">
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
+<jsp:include page="header.jsp"></jsp:include>
 <body>
-
-	
-
-
-	<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-		<img height="70px" src="${images}/Dislogo.gif" alt="">
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav offset-md-2 pl-5">
-				<li class="nav-item active">
-					<h3 class=" active">
-						<a class="nav-link" href="#">CENTRAL DISCOM ELECTRICITY SUPPLY
-							PRIVATE LIMITED <span class="sr-only">(current)</span>
-						</a>
-					</h3>
-				</li>
-
-
-			</ul>
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link active"
-					href="./mainHomePage"><i class="fas fa-home"></i>Home</a>
-				</li>
-				<li class="nav-item active"><a class="nav-link active" href="">AboutUs</a>
-				</li>
-				  <li class="nav-item active">
-                        <a class="nav-link active" href="./consumerLogout">logout</a>
-                     </li>
-			</ul>
-
-
-		</div>
-	</nav>
 	<div
-		class="col-md-4 col-sm-12  col-10 col-4 offset-md-4   offset-1 card card-body mt-5 my-card">
+		class="col-md-4 col-sm-12  col-10 col-4 offset-md-4   offset-1 <!-- card card-body --> mt-5 <!-- my-card -->">
 
 		<form action="./loginPage"onsubmit="return validateForm()" method="post">
 			<div id="success" class="alert alert-success" style="display: none;">
@@ -69,7 +36,7 @@
 					<i class="fas fa-user-circle"></i>
 				</h1>
 			</div>
-			<h2 class="text-center">Consumer Login</h2>
+			<h2 class="text-center">CONSUMER LOGIN</h2>
 			<div class="form-group">
 				<label for="exampleInputEmail1">Email Id</label> <input id="email" name="emailId"
 					type="email" placeholder="validemail@gmail.com"
@@ -94,11 +61,13 @@
 						for="exampleCheck1">Show Password</label>
 				</div>
 
-				<div class="float-left offset-md-4 ">
+				<!-- <div class="float-left offset-md-4 ">
 					<input id="savebox" type="checkbox" class="form-check-input ">
 					<label class="form-check-label" for="exampleCheck1">Save
 						Password</label>
-				</div>
+				</div> -->
+				
+				
 			</div>
 			<button type="submit"
 				class="btn btn-outline-primary col-md-8 offset-md-2 mt-3">Login</button>

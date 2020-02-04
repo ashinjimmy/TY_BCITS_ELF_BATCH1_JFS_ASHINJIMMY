@@ -14,14 +14,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = " payment_details ")
+//@Table(name = " payment_details ")
 public class PaymentDetailsBean  implements Serializable {
 	
 	@Id
 	@Column(name = "rr_number")
 	private String rrNumber;
 	@Column(name = "bill_amount")
-	private int billAmount;
+	private Double billAmount;
 	@Column(name = "current_status")
 	private String currentStatus;
 
