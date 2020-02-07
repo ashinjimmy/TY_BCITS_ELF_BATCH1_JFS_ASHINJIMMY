@@ -12,6 +12,9 @@
 %> 
 <% List< MonthlyConsumption> consumptionBean = (List< MonthlyConsumption>) request.getAttribute("materConsumption");
 %>
+ <% String errMsg = (String) request.getAttribute("errMsg"); %>
+ <% String msg = (String) request.getAttribute("msg"); %>
+ 
  
 <!DOCTYPE html>
 <html>
@@ -30,6 +33,17 @@
 
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+
+
+<% if(errMsg != null && !errMsg.isEmpty()) {%>
+	<h2 style="color: red;"><%=errMsg%>
+	</h2>
+	<%}%>
+	
+	<% if(msg != null && !msg.isEmpty()) {%>
+	<h2 style="color: red;"><%=msg%>
+	</h2>
+	<%}%>
 
 <table class="table">
   <thead class="bg-primary">
@@ -57,15 +71,16 @@
     </tr>
   </thead>
   <tbody>
+  
+   <% for( MonthlyConsumption consumedList  :  consumptionBean) {%>
     <tr>
-      <% for( MonthlyConsumption consumedList  :  consumptionBean) {%>
-      
       <% SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); %>
       <td><%=  formatter.format (consumedList.getMonthlyConsumptionPk().getDate()) %>&nbsp;&nbsp;&nbsp;</td>
       <td> <%= consumedList.getTotalUnits() %>&nbsp;&nbsp;&nbsp;</td>
        <td> <%= consumedList.getBillAmount()%>&nbsp;&nbsp;&nbsp;</td>
+   </tr>
        <%} %>
-      </tr>
+
   </tbody>	
 </table>
 

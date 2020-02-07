@@ -29,4 +29,6 @@ public class CurrentBillBean implements Serializable {
     private Date issueDate;
     @Column(name = "due_date")
     private Date dueDate;
+    @Column(name = "type_of_consumer")
+    private String typeOfConsumer;
 }

@@ -8,6 +8,10 @@
 %> 
 <% CurrentBillBean billBean = (CurrentBillBean) request.getAttribute("masterBill");
 %>
+
+ <% String errMsg = (String) request.getAttribute("errMsg"); %>
+ <% String msg = (String) request.getAttribute("msg"); %>
+ 
         
 <!DOCTYPE html>
 <html>
@@ -25,6 +29,17 @@
 </head>
 
 <body>
+
+<% if(errMsg != null && !errMsg.isEmpty()) {%>
+	<h2 style="color: red;"><%=errMsg%>
+	</h2>
+	<%}%>
+	
+	<% if(msg != null && !msg.isEmpty()) {%>
+	<h2 style="color: red;"><%=msg%>
+	</h2>
+	<%}%>
+
 <jsp:include page="header.jsp"></jsp:include>
 <table class="table">
   <thead class="bg-primary">

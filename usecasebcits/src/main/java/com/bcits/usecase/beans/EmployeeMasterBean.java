@@ -23,4 +23,6 @@ public class EmployeeMasterBean implements Serializable {
 	private String region;
 	@Column
 	private String password;
+	@Column
+	private String designation;
 }

@@ -45,10 +45,10 @@
 				<li class="nav-item active"><a class="nav-link active"
 					href="./mainHomePage"><i class="fas fa-home"></i></a>
 				</li>
-				<li class="nav-item active"><a class="nav-link active" href="./consAboutUsPage">&nbsp;About Us</a>
+				<li class="nav-item active"><a class="nav-link active" href="./empAboutUsPage">&nbsp;About Us</a>
 				</li>
 				  <li class="nav-item active">
-                        <a class="nav-link active" href="./consumerLogOut">&nbsp;Log Out</a>
+                        <a class="nav-link active" href="./employeeLogOut">&nbsp;Log Out</a>
                      </li>
 			</ul>
 

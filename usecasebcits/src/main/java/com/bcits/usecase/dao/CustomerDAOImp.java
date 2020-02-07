@@ -57,16 +57,15 @@ public class CustomerDAOImp implements CustomerDAO {
 
 	}// end of consumerLogin method
 
-
 	@Override
 	public boolean payment(String rrNumber, Date date, double amount) {
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		BillHistoryBean billHistory = new BillHistoryBean();
-		BillHistoryBeanPk  billHistoryPk = new BillHistoryBeanPk();
+		BillHistoryBeanPk billHistoryPk = new BillHistoryBeanPk();
 		billHistory.setBillAmount(amount);
 		billHistory.setStatus("Paid Success!");
-	    billHistoryPk.setDateOfPayment(date);
+		billHistoryPk.setDateOfPayment(date);
 		billHistoryPk.setRrNumber(rrNumber);
 		billHistory.setBillHistory(billHistoryPk);
 		if (billHistoryPk != null) {
@@ -74,8 +73,8 @@ public class CustomerDAOImp implements CustomerDAO {
 			manager.persist(billHistory);
 			transaction.commit();
 			return true;
-		} 
-			return false;
+		}
+		return false;
 	}
 
 	@Override
@@ -117,5 +116,36 @@ public class CustomerDAOImp implements CustomerDAO {
 		manager.close();
 		return null;
 	}// End of monthlyConsumption()
+
+	@Override
+	public ConsumerMasterBean getConsumer(String rrNumber) {
+		EntityManager manager = factory.createEntityManager();
+		ConsumerMasterBean consumerMasterBean = manager.find(ConsumerMasterBean.class, rrNumber);
+		if (consumerMasterBean != null) {
+			return consumerMasterBean;
+		}
+		return null;
+	}
+
+	@Override
+	public double previousReading(String rrNumber) {
+		EntityManager manager = factory.createEntityManager();
+		double previousReading;
+
+		try {
+			Query query = manager.createQuery(
+					"select currentReading from MonthlyConsumption where rrNumber =: rrNumber order by currentReading DESC");
+			query.setMaxResults(1);
+			query.setParameter("rrNumber", rrNumber);
+			previousReading = (double) query.getSingleResult();
+		} catch (Exception e) {
+			return 0;
+		}
+		if (previousReading != 0) {
+
+			return previousReading;
+		}
+		return 0;
+	}
 
 }// End of Class

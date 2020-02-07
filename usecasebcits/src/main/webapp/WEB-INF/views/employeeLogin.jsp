@@ -5,6 +5,9 @@
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
+ <% String errMsg = (String) request.getAttribute("errMsg"); %>
+ <% String msg = (String) request.getAttribute("msg"); %>
+ 
 
 <!DOCTYPE html>
 <html>
@@ -12,45 +15,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Consumer Login</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="/bootstrap-4.4.1-dist/bootstrap-4.4.1-dist/css/bootstrap.min.css">
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+<title>Employee Login</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="/bootstrap-4.4.1-dist/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
-
-
 	<div
 		class="col-md-4 col-sm-12  col-10 col-4 offset-md-4   offset-1 card card-body mt-5 my-card">
 
-		<form action="#"
-			onsubmit="return validateForm()">
+		<form action="./loginEmployee" onsubmit="return validateForm()" method="post">
 			<div id="success" class="alert alert-success" style="display: none;">
 				login <strong>Success!</strong>
 			</div>
+			
 			<div class="text-primary offset-md-5 ">
-				<h1>
-					<i class="fas fa-user-circle"></i>
-				</h1>
+				<h1 ><i class="fas fa-user-circle"></i></h1>
 			</div>
 			<h2 class="text-center">EMPLOYEE LOGIN</h2>
 			<div class="form-group">
 				<label for="exampleInputEmail1">Employee Id</label> <input
-					id="email" type="email" placeholder="Admin provided email Id"
-					class="form-control">
-				<p id="eele" style="color: red; display: none; font-size: 12px;">provide
-					valid emailId</p>
-			</div>
+					id="number" type="number" name = "empId" placeholder="Admin provided email Id" class="form-control">
+				<p id="eele" style="color: red; display: none; font-size: 12px;">provide valid emailId</p></div>
 			<div class="form-group">
 				<label for="exampleInputPassword1">Password</label> <input
-					id="password" type="password" placeholder="Mark$123%"
+					id="password" name = "password" type="password" placeholder="Mark$123%"
 					class="form-control">
 				<p id="pele" style="color: red; display: none; font-size: 12px;">provide
 					valid password</p>

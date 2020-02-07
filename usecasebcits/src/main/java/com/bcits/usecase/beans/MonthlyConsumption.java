@@ -22,4 +22,8 @@ public class MonthlyConsumption  implements Serializable{
 	private double totalUnits;
 	@Column
 	private String region;
+	@Column(name = "prev_reading")
+	private double prevReading;
+	@Column(name = "current_Reading")
+	private double currentReading;
 }

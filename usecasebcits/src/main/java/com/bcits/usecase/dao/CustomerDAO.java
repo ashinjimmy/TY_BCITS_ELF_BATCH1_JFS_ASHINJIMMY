@@ -16,5 +16,7 @@ public interface CustomerDAO {
 	public CurrentBillBean showCurrentBill(String rrNumber);
 	public List<BillHistoryBean> showBillHistory(String rrNumber);
     public List<MonthlyConsumption> monthlyConsumption(String rrNumber);
-}
+    public  ConsumerMasterBean  getConsumer(String rrNumber);
+    public double previousReading(String rrNumber);
+ }
 

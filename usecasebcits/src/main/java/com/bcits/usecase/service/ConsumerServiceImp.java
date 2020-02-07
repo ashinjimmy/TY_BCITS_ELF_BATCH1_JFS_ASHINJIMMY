@@ -62,4 +62,16 @@ public class ConsumerServiceImp implements ConsumerService {
 		return dao.monthlyConsumption(rrNumber);
 	}
 
+	@Override
+	public ConsumerMasterBean getConsumer(String rrNumber) {
+		return dao.getConsumer(rrNumber);
+	}
+
+	@Override
+	public double previousReading(String rrNumber) {
+	return 0;
+	}
+	
+	
+
 }

@@ -21,12 +21,32 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 
-<div class="alert alert-success" role="alert">
-  <h4 class="alert-heading"></h4>
-  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-  <hr>
-  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+<div class="alert alert-info" role="alert" style="text-align: center;"><br><br>
+  <h2 class="alert-heading">Unit of Government Of Karnataka </h2><br><br>
+<p style="color: blue; text-align: center;">Industry	Electricity<br>
+Founded	2002<br>
+Headquarters Karnataka, India<br>
+Owner	Karnataka Government<p><br>
 </div>
+<!-- <div class="container form">
+<p style="color: navy; text-align: center;"> Responsible for electric power
+ distribution in state of Karnataka.<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+ Its origin was in Karnataka Electricity Board.
+  This distribution entity was incorporated to provide efficient electric power supply 
+  to the people of Karnataka state.<p>
+  
+</div> -->
+
+<div class="media">
+  
+  <div class="media-body">
+    <h5 class="mt-0 font-weight-bold" style="color: purple;text-align: center;">
+    Responsible for electric power distribution in state of Karnataka. Its origin was in Karnataka Electricity Board.
+    <br>This distribution entity was incorporated to provide efficient electric power supply to the people of Karnataka state.
+    </h5>
+  </div>
+</div>
+
 
 
 </body>

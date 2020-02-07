@@ -24,6 +24,11 @@ public class ConsumerController {
 
 	@Autowired
 	private ConsumerService service;
+	
+	@GetMapping("/consAboutUsPage")
+	public String displayConsAboutUsPage() {
+		return "aboutPage";
+	}
 
 	@GetMapping("/mainHomePage")
 	public String displayMainHomePage() {
@@ -179,7 +184,7 @@ public class ConsumerController {
 	public String consumerLogOut( ModelMap modelMap, HttpSession session) {
 		session.invalidate();
 		modelMap.addAttribute("errMsg","Successfully Logged Out");
-		return "homePage";
+		return "consumerLoginPage";
 	}
 
 }// End of the class Controller

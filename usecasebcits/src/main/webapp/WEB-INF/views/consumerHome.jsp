@@ -5,6 +5,11 @@
 <%
 	ConsumerMasterBean consumerBean = (ConsumerMasterBean) session.getAttribute("infoBean");
 %>
+
+ <% String errMsg = (String) request.getAttribute("errMsg"); %>
+ <% String msg = (String) request.getAttribute("msg"); %>
+ 
+
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
@@ -21,6 +26,16 @@ href ="${css}/consumerHome.css">
 
 <jsp:include page="header.jsp"></jsp:include>
 <body >
+
+<% if(errMsg != null && !errMsg.isEmpty()) {%>
+	<h2 style="color: red;"><%=errMsg%>
+	</h2>
+	<%}%>
+	
+	<% if(msg != null && !msg.isEmpty()) {%>
+	<h2 style="color: red;"><%=msg%>
+	</h2>
+	<%}%>
 <table class="table">
   <thead class="bg-primary">
     <tr>
