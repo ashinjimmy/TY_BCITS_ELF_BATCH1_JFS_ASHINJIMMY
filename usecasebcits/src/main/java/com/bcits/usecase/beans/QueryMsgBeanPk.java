@@ -10,11 +10,12 @@ import lombok.Data;
 
 @Data
 @Embeddable
-public class MonthlyConsumptionPk  implements Serializable{
-	
-	@Column(name = "rr_number")
-	private String rrNumber;
-	@Column()
-	private Date date;
+public class QueryMsgBeanPk implements Serializable{
+       @Column(name ="rr_number")
+		private String rrNumber;
+		private Date date;
 
-}
+	}
+
+
+

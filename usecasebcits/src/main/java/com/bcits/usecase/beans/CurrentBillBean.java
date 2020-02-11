@@ -22,7 +22,7 @@ public class CurrentBillBean implements Serializable {
     @Column(name = "current_reading")
 	private double currentReading;
     @Column(name = "total_units")
-  	private int totalUnits;
+  	private double totalUnits;
     @Column(name = "bill_amount")
 	private double billAmount;
     @Column(name = "issue_date")

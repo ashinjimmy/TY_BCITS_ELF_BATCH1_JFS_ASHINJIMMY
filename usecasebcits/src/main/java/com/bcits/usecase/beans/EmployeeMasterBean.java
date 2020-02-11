@@ -16,7 +16,7 @@ public class EmployeeMasterBean implements Serializable {
 	
 	@Id
 	@Column(name = "emp_id")
-	private int  empId;
+	private int empId;
 	@Column(name = "name")
 	private String empName;
 	@Column

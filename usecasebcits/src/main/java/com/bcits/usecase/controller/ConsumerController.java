@@ -17,6 +17,7 @@ import com.bcits.usecase.beans.BillHistoryBean;
 import com.bcits.usecase.beans.ConsumerMasterBean;
 import com.bcits.usecase.beans.CurrentBillBean;
 import com.bcits.usecase.beans.MonthlyConsumption;
+import com.bcits.usecase.beans.QueryMsgBean;
 import com.bcits.usecase.service.ConsumerService;
 
 @Controller
@@ -162,9 +163,12 @@ public class ConsumerController {
 	@PostMapping("/billPaymentPage")
 	public String displaySucessfullPaymentPage(HttpSession session, ModelMap modelMap, double amount) {
 		ConsumerMasterBean consumerMasterBean = (ConsumerMasterBean) session.getAttribute("infoBean");
+		System.out.println(consumerMasterBean);
 		Date date = new Date();
 		if (consumerMasterBean != null) {
+			System.out.println(consumerMasterBean);
 			boolean billPay = service.payment(consumerMasterBean.getRrNumber(), date, amount);
+			System.out.println(billPay);
 			if (billPay == true) {
 				modelMap.addAttribute("msg", "Online Payment Successfull");
 				return "onlinePaymentPage";
@@ -185,6 +189,36 @@ public class ConsumerController {
 		session.invalidate();
 		modelMap.addAttribute("errMsg","Successfully Logged Out");
 		return "consumerLoginPage";
-	}
+	}// End of consumerLogOut()
+	
+	@GetMapping("/queryRaised")
+	public String querySubmit(HttpSession session, ModelMap modelMap, String query) {
+		System.out.println(query);
+		ConsumerMasterBean consumerInfo = (ConsumerMasterBean) session.getAttribute("infoBean");
+		if (consumerInfo != null) {
+			if (service.setQuery(query, consumerInfo.getRrNumber(), consumerInfo.getRegion())) {
+				modelMap.addAttribute("msg", "Query sent to the Authority");
+			}
+			return "supportTicket";
+		} else {
+			modelMap.addAttribute("errMsg", "Please Login First..");
+			return "consumerLoginPage";
+		}
+	}//End of querySubmit()
+
+	@GetMapping("/seeResponse")
+	public String seeQueryResponse(HttpSession session, ModelMap modelMap) {
+		ConsumerMasterBean consumerInfoBean = (ConsumerMasterBean) session.getAttribute("infoBean");
+		if (consumerInfoBean != null) {
+		
+			List<QueryMsgBean> response = service.getResponse(consumerInfoBean.getRrNumber());
+			System.out.println(response+" response");
+			modelMap.addAttribute("response",response);
+			return "empResponsePage";
+	}else {
+		modelMap.addAttribute("errMsg", "Please Login First..");
+		return "consumerLoginPage";
+		}
+	}//End of seeQueryResponse()
 
 }// End of the class Controller

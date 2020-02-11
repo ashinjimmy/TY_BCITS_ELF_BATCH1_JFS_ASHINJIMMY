@@ -8,6 +8,7 @@ import com.bcits.usecase.beans.ConsumerMasterBean;
 import com.bcits.usecase.beans.CurrentBillBean;
 import com.bcits.usecase.beans.MonthlyConsumption;
 import com.bcits.usecase.beans.PaymentDetailsBean;
+import com.bcits.usecase.beans.QueryMsgBean;
 
 public interface CustomerDAO {
 	public boolean consumerSignUp(ConsumerMasterBean consumerBean);
@@ -17,6 +18,10 @@ public interface CustomerDAO {
 	public List<BillHistoryBean> showBillHistory(String rrNumber);
     public List<MonthlyConsumption> monthlyConsumption(String rrNumber);
     public  ConsumerMasterBean  getConsumer(String rrNumber);
-    public double previousReading(String rrNumber);
+    public List<MonthlyConsumption> showAllBillList(String region);
+    public List<QueryMsgBean> getResponse(String rrNumber);
+	public boolean setQuery(String request, String rrNumber, String region);
+    
+//    public double previousReading(String rrNumber);
  }
 

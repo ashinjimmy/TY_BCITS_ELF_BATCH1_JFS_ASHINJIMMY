@@ -48,7 +48,9 @@
       <th scope="col"><a href="./employeeHomePage"class="list-group-item list-group-item-action"> Regional Officer Details</a> </th>
       <th scope="col"><a href="./consumerDetails"class="list-group-item list-group-item-action   "> Consumer Details</a> </th>
       <th scope="col"><a href="./displayGenerateBill" class="list-group-item list-group-item-action  active">Generate Bill </a></th>
-      <th scope="col"><a href="#" class="list-group-item list-group-item-action">Show Bill Details</a> </th>
+      <th scope="col"><a href="./showAllCurrentBills" class="list-group-item list-group-item-action">Show Bill Details</a> </th>
+            	<th scope="col"><a href="./seeQueryInfo" class="list-group-item list-group-item-action">Recieved Queries </a> </th>
+      
 		
 		</thead>
 	</table>
@@ -70,27 +72,25 @@
 		</thead>
 		
 		<tbody>
-	   <form action="#">
 		            <% if(consumerList != null) {%>
 	
 					<% for( ConsumerMasterBean consumedList  :  consumerList) {%>
-
-			<tr>
-			<td><%= consumedList.getRrNumber()%>&nbsp;&nbsp;&nbsp;</td>
+ 					<tr>
+	   <form action="./billGenerator" >
+ 					<input name ="rrNumber" type="text" value="<%=consumedList.getRrNumber() %>" hidden="true" >			
+				<td><%= consumedList.getRrNumber()%>&nbsp;&nbsp;&nbsp;</td>
 				<td><%= consumedList.getFirstName() + " " + consumedList.getLastName()%>&nbsp;&nbsp;&nbsp;</td>
 				<td><%= consumedList.getEmailId()%>&nbsp;&nbsp;&nbsp;</td>
 				<td><%= consumedList.getPhoneNumber()%>&nbsp;&nbsp;&nbsp;</td>
 				<td><%= consumedList.getTypeOfConsumer()%>&nbsp;&nbsp;&nbsp;</td>
 				<td><%= consumedList.getRegion()%>&nbsp;&nbsp;&nbsp;</td>
-	        	<td><button type="submit" class="btn btn-success">Generate Bill</button></td>
-	        	</form>
+	        	<td><button type="submit" class="btn btn-success">Generate Bill</button></td>        	
+        </form>
              </tr>
-        
-				<%} %>
-				<%} %>
-			
+				<%}} %>
 		</tbody>
 	</table>
+
 
 </body>
 </html>

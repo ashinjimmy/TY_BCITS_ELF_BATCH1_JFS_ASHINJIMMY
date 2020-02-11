@@ -44,6 +44,8 @@ href ="${css}/consumerHome.css">
       <th scope="col"><a href="./monthlyConsumption" class="list-group-item list-group-item-action">Monthly	Consumption</a> </th>
       <th scope="col"> <a href="./billHistoryPage"	class="list-group-item list-group-item-action">Bill History</a> </th>
      <th scope="col"> <a href= "./onlinePayement" class="list-group-item list-group-item-action">Pay Online</a></th>
+        <th scope="col"> <a href= "./queryRaised" class="list-group-item list-group-item-action">Comment for Help</a></th>
+        <th scope="col"> <a href= "./seeResponse" class="list-group-item list-group-item-action  ">Recieved Response</a></th>
     </tr>
   </thead>
   </table>
@@ -91,16 +93,7 @@ href ="${css}/consumerHome.css">
 					</tbody>
 				</table><br><br>
 			
-			 <div class="form-group" style="margin-left: 285px; width: 60%; " > 
-				<label for="comment"><strong>Query:</strong></label><br>
-					<div align="center">
-	         <textarea name="txtArea" rows="5" cols="125" ></textarea>
-	         </div>
-		<!-- 		<textarea class="form-control" rows="2" id="comment"></textarea> -->
-				<br>
-				<button type="submit" formaction="/" class="btn btn-primary"
-					style="margin-top: -7px;">Submit</button>
-			</div>
+		
 			
 				<script src="${js}/jquery/jquery-3.4.1.js"></script>
 	<script src="${js}/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>

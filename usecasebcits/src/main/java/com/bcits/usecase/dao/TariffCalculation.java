@@ -7,15 +7,19 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
 import com.bcits.usecase.beans.TariffMaster;
 
+@Repository
 public class TariffCalculation {
 	@PersistenceUnit
 	private EntityManagerFactory factory;
 	
+	
 	public double billcomputation(double units, String typeOfConsumer) {
 		EntityManager manager = factory.createEntityManager();
-		Query query = manager.createQuery("from TariffMaster where typeOfConsumer =: type");
+		Query query = manager.createQuery("from TariffMaster where tariffMasterPk.typeOfConsumer =: type");
 		query.setParameter("type", typeOfConsumer);
 		
 		 List<TariffMaster> tariffInfo = query.getResultList();

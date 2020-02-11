@@ -36,6 +36,8 @@
       <th scope="col"><a href="./monthlyConsumption" class="list-group-item list-group-item-action ">Monthly	Consumption</a> </th>
       <th scope="col"> <a href="./billHistoryPage"	class="list-group-item list-group-item-action active">Bill History</a> </th>
      <th scope="col"> <a href="./onlinePayement" class="list-group-item list-group-item-action">Pay Online</a></th>
+        <th scope="col"> <a href= "./queryRaised" class="list-group-item list-group-item-action">Comment for Help</a></th>
+        <th scope="col"> <a href= "./seeResponse" class="list-group-item list-group-item-action   ">Recieved Response</a></th>
     </tr>
   </thead>
   </table>

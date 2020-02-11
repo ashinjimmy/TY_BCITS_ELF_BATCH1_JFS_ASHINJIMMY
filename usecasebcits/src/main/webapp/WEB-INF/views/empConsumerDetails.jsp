@@ -49,7 +49,9 @@
       <th scope="col"><a href="./employeeHomePage"class="list-group-item list-group-item-action"> Regional Officer Details</a> </th>
       <th scope="col"><a href="./consumerDetails"class="list-group-item list-group-item-action  active  "> Consumer Details</a> </th>
       <th scope="col"><a href="./displayGenerateBill" class="list-group-item list-group-item-action">Generate Bill </a></th>
-      <th scope="col"><a href="#" class="list-group-item list-group-item-action">Show Bill Details</a> </th>
+      <th scope="col"><a href="./showAllCurrentBills" class="list-group-item list-group-item-action">Show Bill Details</a> </th>
+      <th scope="col"><a href="./seeQueryInfo" class="list-group-item list-group-item-action">Recieved Queries </a> </th>
+     
 		<!-- 		<th scope="col"><a href=" #"class="list-group-item list-group-item-action">Bill History</a></th>
 				<th scope="col"><a href="#"class="list-group-item list-group-item-action">Month on Month Revenue</a></th> -->
 			</tr>

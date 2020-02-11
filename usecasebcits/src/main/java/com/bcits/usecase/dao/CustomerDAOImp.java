@@ -16,7 +16,10 @@ import com.bcits.usecase.beans.BillHistoryBeanPk;
 import com.bcits.usecase.beans.ConsumerMasterBean;
 import com.bcits.usecase.beans.CurrentBillBean;
 import com.bcits.usecase.beans.MonthlyConsumption;
+import com.bcits.usecase.beans.MonthlyConsumptionPk;
 import com.bcits.usecase.beans.PaymentDetailsBean;
+import com.bcits.usecase.beans.QueryMsgBean;
+import com.bcits.usecase.beans.QueryMsgBeanPk;
 
 @Repository
 public class CustomerDAOImp implements CustomerDAO {
@@ -59,23 +62,32 @@ public class CustomerDAOImp implements CustomerDAO {
 
 	@Override
 	public boolean payment(String rrNumber, Date date, double amount) {
-		EntityManager manager = factory.createEntityManager();
-		EntityTransaction transaction = manager.getTransaction();
-		BillHistoryBean billHistory = new BillHistoryBean();
-		BillHistoryBeanPk billHistoryPk = new BillHistoryBeanPk();
-		billHistory.setBillAmount(amount);
-		billHistory.setStatus("Paid Success!");
-		billHistoryPk.setDateOfPayment(date);
-		billHistoryPk.setRrNumber(rrNumber);
-		billHistory.setBillHistory(billHistoryPk);
-		if (billHistoryPk != null) {
+
+		try {
+			EntityManager manager = factory.createEntityManager();
+			EntityTransaction transaction = manager.getTransaction();
 			transaction.begin();
+			Query query = manager.createQuery(" from MonthlyConsumption where  "
+					+ "monthlyConsumptionPk.rrNumber =: rrNumber order by currentReading DESC");
+			query.setMaxResults(1);
+			query.setParameter("rrNumber", rrNumber);
+			BillHistoryBean billHistory = new BillHistoryBean();
+			BillHistoryBeanPk billHistoryPk = new BillHistoryBeanPk();
+			MonthlyConsumption monthlyConsumption = (MonthlyConsumption) query.getSingleResult();
+			billHistory.setBillAmount(amount);
+			billHistory.setStatus("Paid");
+			billHistoryPk.setDateOfPayment(date);
+			billHistoryPk.setRrNumber(rrNumber);
+			billHistory.setBillHistory(billHistoryPk);
+			monthlyConsumption.setStatus("Paid");
 			manager.persist(billHistory);
 			transaction.commit();
 			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return false;
-	}
+	}// End of payment()
 
 	@Override
 	public CurrentBillBean showCurrentBill(String rrNumber) {
@@ -128,24 +140,57 @@ public class CustomerDAOImp implements CustomerDAO {
 	}
 
 	@Override
-	public double previousReading(String rrNumber) {
+	public List<MonthlyConsumption> showAllBillList(String region) {
+
 		EntityManager manager = factory.createEntityManager();
-		double previousReading;
+		Query query = manager.createQuery(" from MonthlyConsumption where region =: region ");
+		query.setParameter("region", region);
+		List<MonthlyConsumption> billList = query.getResultList();
+		if (billList != null) {
+			return billList;
+		}
+		manager.close();
+		return null;
+	}// End of showAllBillList()
+
+	@Override
+	public List<QueryMsgBean> getResponse(String rrNumber) {
+		EntityManager manager = factory.createEntityManager();
 
 		try {
-			Query query = manager.createQuery(
-					"select currentReading from MonthlyConsumption where rrNumber =: rrNumber order by currentReading DESC");
-			query.setMaxResults(1);
+			Query query = manager.createQuery(" from QueryMsgBean where queryMsgPk.rrNumber =: rrNumber ");
 			query.setParameter("rrNumber", rrNumber);
-			previousReading = (double) query.getSingleResult();
+			List<QueryMsgBean> respQueryMsgList = query.getResultList();
+			return respQueryMsgList;
 		} catch (Exception e) {
-			return 0;
+			e.printStackTrace();
 		}
-		if (previousReading != 0) {
+		return null;
+	}//End of  getResponse()
 
-			return previousReading;
+	@Override
+	public boolean setQuery(String request, String rrNumber, String region) {
+System.out.println(request);
+System.out.println(rrNumber);
+
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		QueryMsgBean msgBean = new QueryMsgBean();
+		QueryMsgBeanPk msgBeanPk = new QueryMsgBeanPk();
+		try {
+			transaction.begin();
+			msgBean.setRegion(region);
+			msgBean.setQueryRequest(request);
+			msgBeanPk.setRrNumber(rrNumber);
+			msgBeanPk.setDate(new Date());
+			msgBean.setQueryMsgPk(msgBeanPk);
+			manager.persist(msgBean);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		return 0;
-	}
+		return false;
+	}//End of setQuery()
 
 }// End of Class
