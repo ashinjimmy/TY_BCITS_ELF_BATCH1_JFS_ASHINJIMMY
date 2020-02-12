@@ -24,7 +24,7 @@ public class EmailGeneration {
 		System.out.println("Sending Mail...");
 
 		final String username = "ashinjimmy54@gmail.com";
-		final String password = "HcSaVeUs#3";
+		final String password = "********";
 	
 
 		
