@@ -9,7 +9,9 @@
     <%
 	EmployeeMasterBean emMasterBean = (EmployeeMasterBean) session.getAttribute("masterInfo");
 %>
-<% long count = (long)request.getAttribute("count"); %>
+<% double totalBillAmount = (double)request.getAttribute("totalBill"); %>
+<% double collectedBillAmount = (double)request.getAttribute("collectedBill"); %>
+<% double pendingBillAmount = (double)request.getAttribute("pendingBill"); %>
 <% String errMsg= (String)request.getAttribute("errMsg"); %>
 <% String msg = (String)request.getAttribute("msg"); %>
 <spring:url var="css" value="/resources/css" />
@@ -28,7 +30,7 @@
 	href="./resources/fontawesome-free-5.12.0-web/css/all.css">
 </head>
 
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="empHeader.jsp"></jsp:include>
 <body >
 
 
@@ -45,66 +47,46 @@
 <table class="table">
   <thead class="bg-primary">
     <tr>
-        <th scope="col"><a href="./employeeHomePage"class="list-group-item list-group-item-action active "> Regional Officer Details</a> </th>
+        <th scope="col"><a href="./employeeHomePage"class="list-group-item list-group-item-action  "> Regional Officer Details</a> </th>
       <th scope="col"><a href="./consumerDetails"class="list-group-item list-group-item-action  "> Consumer Details</a> </th>
       <th scope="col"><a href="./displayGenerateBill" class="list-group-item list-group-item-action">Generate Bill </a></th>
       <th scope="col"><a href="./showAllCurrentBills" class="list-group-item list-group-item-action">Show Bill Details</a> </th>
-      <th scope="col"><a href="./seeQueryInfo" class="list-group-item list-group-item-action">Recieved Queries </a> </th>
-      <th scope="col"><a href="./revenueBillDetails" class="list-group-item list-group-item-action">Revenue Details</a> </th>
+      	<th scope="col"><a href="./seeQueryInfo" class="list-group-item list-group-item-action">Recieved Queries </a> </th>
+      	<th scope="col"><a href="./revenueBillDetails" class="list-group-item list-group-item-action active" >Revenue Details</a> </th>
       <!-- <th scope="col"> <a href="#"	class="list-group-item list-group-item-action">Bill History</a> </th>
      <th scope="col"> <a href= "#" class="list-group-item list-group-item-action">Month on Month Revenue</a></th> -->
     </tr>
   </thead>
   </table>
-  	<marquee style="color: olive;" ><b> WELCOME TO EMPLOYEE HOME PAGE</b></marquee>
-			
+
+		<form action="./revenueBillDetails" method="get">
 			<table class="table-info ;" style="margin-left: 285px; width: 60%"  > 
 					<tbody style="text-align: center;">
-												
+											
 						<tr>
-							<td><strong style="color:black;">Employee ID </strong></td>
-							<td> :</td>
-							<td><strong style="color: black;"><%= emMasterBean.getEmpId()%></strong></td>
+							<td><Strong style="color: black;">Total Generated Bill Amount </Strong></td>
+							<td>:</td>
+							<td><strong style="color: black;"><%=totalBillAmount %></strong></td>
 								<td> <br><br></td>
 						</tr>
 						<tr>
-							<td><Strong style="color: black;">Employee Name </Strong></td>
+							<td><strong style="color: black;">Total Collected Bill Amount</strong></td>
 							<td>:</td>
-							<td><strong style="color: black;"><%=emMasterBean.getEmpName()%></strong></td>
+							<td><strong style="color: black;"><%=collectedBillAmount%></strong></td>
 								<td> <br><br></td>
-						</tr>
-						<tr>
-							<td><strong style="color: black;">Region</strong></td>
-							<td>:</td>
-							<td><strong style="color: black;"><%=emMasterBean.getRegion()%></strong></td>
-								<td> <br><br></td>
-						</tr>
-						<tr>
-							<td><Strong style="color: black;">Password </Strong></td>
-							<td>:</td>
-							<td><strong style="color: black;"><%=emMasterBean.getPassword()%></strong></td>
-								<td> <br><br></td>
-						</tr>
-						<tr>
-							<td><strong style="color: black;">Designation</strong></td>
-							<td>:</td>
-							<td><strong style="color: black;"><%=emMasterBean.getDesignation()%></strong></td>
-									<td> <br><br></td>
 						</tr>
 						
-						 <tr>
-							<td><strong style="color: black;">Number of Consumers</strong></td>
+						<tr>
+							<td><strong style="color: black;">Total Pending Bill Amount</strong></td>
 							<td>:</td>
-							<td><strong style="color: black;"><%= count%></strong></td>
-									<td> <br><br></td>
+							<td><strong style="color: black;"><%=pendingBillAmount%></strong></td>
+								<td> <br><br></td>
 						</tr>
-				
-						
+			
 					</tbody>
+					</form>	
 			
 	<script src="${js}/jquery/jquery-3.4.1.js"></script>
 	<script src="${js}/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
-
-
 </body>
 </html>

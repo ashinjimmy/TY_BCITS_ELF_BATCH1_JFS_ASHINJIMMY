@@ -171,10 +171,10 @@ public class EmployeeController {
 			ConsumerMasterBean masterBean = consumerService.getConsumer(currentBillBean.getRrNumber());
 			if (service.addCurrentBill(currentBillBean)) {
 				generation.sendMail(currentBillBean,masterBean);
-				modelMap.addAttribute("msg", "Electricity Bill Generated Successfully");
+				modelMap.addAttribute("msg", "Electricity Bill Generated Successfully.");
 				modelMap.addAttribute("consumerList", consumerList);
 			} else {
-				modelMap.addAttribute("errMsg", "Bill Generation Failed ");
+				modelMap.addAttribute("errMsg", "Bill Generation Failed, already generated once. ");
 				modelMap.addAttribute("consumerList", consumerList);
 			}
 			return "empBillGenerator";
@@ -242,6 +242,28 @@ public class EmployeeController {
 		}
 		
 	}//End of  sendResponseForQuery()
+	
+	
+	@GetMapping("/revenueBillDetails")
+	public String billRevenueDetails( HttpSession session, ModelMap modelMap ) {
+		EmployeeMasterBean empBean = (EmployeeMasterBean) session.getAttribute("masterInfo");
+
+		if (empBean != null) {
+			double totalBillAmount  = consumerService.totalGeneratedBillAmount(empBean.getRegion());
+			double collectedBillAmount   = consumerService.collectedBillAmount(empBean.getRegion());
+			double pendingBillAmount = totalBillAmount -  collectedBillAmount ;
+			System.out.println(  totalBillAmount);
+			System.out.println(collectedBillAmount  );
+			System.out.println( pendingBillAmount);
+			modelMap.addAttribute("totalBill", totalBillAmount);
+			modelMap.addAttribute("collectedBill", collectedBillAmount );
+			modelMap.addAttribute("pendingBill", pendingBillAmount );
+			return "revenueDetails";
+		} else {
+			modelMap.addAttribute("errMsg", "Invalid Credentials");
+			return "employeeLogin";
+		}
+	}// End of 
 	
 
 }// End of class

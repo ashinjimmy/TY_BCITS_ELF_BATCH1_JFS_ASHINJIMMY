@@ -10,11 +10,9 @@ import lombok.Data;
 
 @Data
 @Embeddable
-public class MonthlyConsumptionPk  implements Serializable{
-	
+public class MonthlyRevenuePk  implements Serializable {
 	@Column(name = "rr_number")
 	private String rrNumber;
-	@Column(name = "bill_issued_date")
+	@Column()
 	private Date date;
-
 }

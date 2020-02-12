@@ -39,12 +39,6 @@
 
 
 			</ul>
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link active" href="">&nbsp;About Us</a>
-				</li>
-				 
-			</ul>
-
 
 		</div>
 	</nav>

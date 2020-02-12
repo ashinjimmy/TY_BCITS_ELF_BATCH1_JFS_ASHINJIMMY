@@ -4,7 +4,8 @@
     pageEncoding="ISO-8859-1"%>
     <% ConsumerMasterBean consumerBillInfo = (ConsumerMasterBean)request.getAttribute("billMaster"); %>
    <%  Double  previousData  =  (Double) request.getAttribute("previous"); 
-     String msg = (String ) request.getAttribute("msg");%>
+     String msg = (String ) request.getAttribute("msg");
+      String errMsg = (String ) request.getAttribute("errMsg");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 <title>Electricity Bill Generator</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="empHeader.jsp"/>
 	
 <div class="container">
 <% if( consumerBillInfo != null && previousData != null){ %>
@@ -62,6 +63,11 @@
       <% if(msg != null && !msg.isEmpty()){ %>
       	<h1><%=msg %></h1>
       <%} %>
+      
+      <% if(errMsg != null && !errMsg.isEmpty()){ %>
+      	<h1><%=errMsg %></h1>
+      <%} %>
+      
 </div>
 
 </body>

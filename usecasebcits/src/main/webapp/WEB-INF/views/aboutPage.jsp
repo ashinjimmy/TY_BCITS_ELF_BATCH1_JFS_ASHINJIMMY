@@ -19,7 +19,28 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+		<img height="70px" src="${images}/Dislogo.gif" alt="">
+		
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav offset-md-1 pl-3">
+				<li class="nav-item active">
+					<h3 class=" active">
+						<a class="nav-link" href="#">CENTRAL DISCOM ELECTRICITY SUPPLY
+							PRIVATE LIMITED <span class="sr-only">(current)</span>
+						</a>
+					</h3>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a class="nav-link active"
+					href="./mainHomePage"><i class="fas fa-home"></i></a>
+			</ul>
+		</div>
+	</nav>
+
 
 <div class="alert alert-info" role="alert" style="text-align: center;"><br><br>
   <h2 class="alert-heading">Unit of Government Of Karnataka </h2><br><br>

@@ -27,7 +27,7 @@
 </head>
 
 <body>
-<jsp:include page="header.jsp"/>
+<jsp:include page="empHeader.jsp"/>
 
 <table class="table">
   <thead class="bg-primary">
@@ -38,7 +38,7 @@
       <th scope="col"><a href="./displayGenerateBill" class="list-group-item list-group-item-action">Generate Bill </a></th>
       <th scope="col"><a href="./showAllCurrentBills" class="list-group-item list-group-item-action">Show Bill Details</a> </th>
        <th scope="col"><a href="./seeQueryInfo" class="list-group-item list-group-item-action  active">Recieved Queries </a> </th>
-      
+       	<th scope="col"><a href="./revenueBillDetails" class="list-group-item list-group-item-action">Revenue Details</a> </th>
     </tr>
   </thead>
   </table>
@@ -47,15 +47,15 @@
 		<marquee style="">
 		<h3><b> QUERY DETAILS</b></h3>
 	</marquee>
-      <table class="table-primary ;" style="margin-left: 285px; width: 100%"  > 
+      <table class="table-primary ;" style="margin-left: 100px; width: 1350px;"  > 
 		<thead style="color: navy; ">
 			<tr>
 				<!-- <th scope="col">Query Details</th> -->
 				<th scope="col">&nbsp;&nbsp;&nbsp;Date</th>
 			<th scope="col">	&nbsp;&nbsp;&nbsp;RR Number </th>
-				<th scope="col"> 	&nbsp;&nbsp;&nbsp;Request</th>
-				<th scope="col"> 	&nbsp;&nbsp;&nbsp;Response</th>
-				<th scope="col"> 	&nbsp;&nbsp;&nbsp;Enter the Response</th>
+				<th scope="col"> &nbsp;&nbsp;&nbsp;Request</th>
+				<th scope="col">&nbsp;&nbsp;&nbsp;Response</th>
+				<th scope="col">&nbsp;&nbsp;&nbsp;Enter the Response</th>
 			</tr>
 		</thead>
  <tbody>

@@ -31,7 +31,7 @@
 	href="./resources/fontawesome-free-5.12.0-web/css/all.css">
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="empHeader.jsp"></jsp:include>
 	
 	<% if(errMsg != null && !errMsg.isEmpty()) {%>
 	<h2 style="color: red;"><%=errMsg%>

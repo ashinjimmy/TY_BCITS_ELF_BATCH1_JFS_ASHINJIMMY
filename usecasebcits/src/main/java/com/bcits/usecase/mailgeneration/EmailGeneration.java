@@ -24,7 +24,7 @@ public class EmailGeneration {
 		System.out.println("Sending Mail...");
 
 		final String username = "ashinjimmy54@gmail.com";
-		final String password = "**********";
+		final String password = "HcSaVeUs#3";
 	
 
 		
@@ -48,14 +48,14 @@ public class EmailGeneration {
 
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("prashulshetty307@gmail.com"));
+			System.out.println(username);
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("ashinjimmy54@gmail.com"));
 			message.setSubject("Electricity Bill");
-			message.setText("Dear Consumer," +
-			                 "\n\n This  Month you have Consumed "+ currentBill.getTotalUnits()+" units"+                               
-					         "\n\n So the total Bill will be rupees" +currentBill.getBillAmount()+
-					         "\n\n The Due Date will be "+dueDate+"\n\n"
-					         		+ "\n\n"
-					         		+ "Statmented On "+ date+"\n\nHappy To Help"
+			message.setText("Dear " +consumerMasterBean.getFirstName()+" "+ consumerMasterBean.getLastName()+" ,"+ 
+			                 "\n\n This  month you have consumed "+ currentBill.getTotalUnits()+" units"+                               
+					         "\n\n Your monthly current bill will be rupees " +currentBill.getBillAmount()+
+					         "\n\n The Due date will be on "+dueDate+
+					          "\n\n Issued On "+ date +"\n\n\n\n Thank You"
 	                           	);
 		
 			Transport.send(message);

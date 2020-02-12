@@ -21,5 +21,7 @@ public interface ConsumerService {
     public List<MonthlyConsumption> showAllBillList(String region);
     public List<QueryMsgBean> getResponse(String rrNumber);
 	public boolean setQuery(String request, String rrNumber, String region);
+	public double totalGeneratedBillAmount(String region);
+	public double collectedBillAmount(String region);
 
 }

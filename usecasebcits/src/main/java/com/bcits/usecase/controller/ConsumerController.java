@@ -25,7 +25,7 @@ public class ConsumerController {
 
 	@Autowired
 	private ConsumerService service;
-	
+
 	@GetMapping("/consAboutUsPage")
 	public String displayConsAboutUsPage() {
 		return "aboutPage";
@@ -88,14 +88,12 @@ public class ConsumerController {
 	@GetMapping("/currentBill")
 	public String displayCurrentBill(HttpSession session, ModelMap modelMap) {
 		ConsumerMasterBean consumerMasterBill = (ConsumerMasterBean) session.getAttribute("infoBean");
-
 		if (consumerMasterBill != null) {
 			CurrentBillBean currentBillBean = service.showCurrentBill(consumerMasterBill.getRrNumber());
 			if (currentBillBean != null) {
 				modelMap.addAttribute("masterBill", currentBillBean);
 				return "currentBillPage";
 			} else {
-
 				modelMap.addAttribute("errMsg",
 						"The requested operation is unable to perform , " + "Please try again later !");
 				return "requestDenieInfoPage";
@@ -182,15 +180,14 @@ public class ConsumerController {
 			return "consumerLoginPage";
 		}
 	}// End of displaySucessfullPaymentPage()
-	
-	
+
 	@GetMapping("/consumerLogOut")
-	public String consumerLogOut( ModelMap modelMap, HttpSession session) {
+	public String consumerLogOut(ModelMap modelMap, HttpSession session) {
 		session.invalidate();
-		modelMap.addAttribute("errMsg","Successfully Logged Out");
+		modelMap.addAttribute("errMsg", "Successfully Logged Out");
 		return "consumerLoginPage";
 	}// End of consumerLogOut()
-	
+
 	@GetMapping("/queryRaised")
 	public String querySubmit(HttpSession session, ModelMap modelMap, String query) {
 		System.out.println(query);
@@ -204,21 +201,21 @@ public class ConsumerController {
 			modelMap.addAttribute("errMsg", "Please Login First..");
 			return "consumerLoginPage";
 		}
-	}//End of querySubmit()
+	}// End of querySubmit()
 
 	@GetMapping("/seeResponse")
 	public String seeQueryResponse(HttpSession session, ModelMap modelMap) {
 		ConsumerMasterBean consumerInfoBean = (ConsumerMasterBean) session.getAttribute("infoBean");
 		if (consumerInfoBean != null) {
-		
+
 			List<QueryMsgBean> response = service.getResponse(consumerInfoBean.getRrNumber());
-			System.out.println(response+" response");
-			modelMap.addAttribute("response",response);
+			System.out.println(response + " response");
+			modelMap.addAttribute("response", response);
 			return "empResponsePage";
-	}else {
-		modelMap.addAttribute("errMsg", "Please Login First..");
-		return "consumerLoginPage";
+		} else {
+			modelMap.addAttribute("errMsg", "Please Login First..");
+			return "consumerLoginPage";
 		}
-	}//End of seeQueryResponse()
+	}// End of seeQueryResponse()
 
 }// End of the class Controller

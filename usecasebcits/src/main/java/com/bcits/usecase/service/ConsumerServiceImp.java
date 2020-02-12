@@ -84,4 +84,16 @@ public class ConsumerServiceImp implements ConsumerService {
 			return dao.setQuery(request, rrNumber, region);		}
 		return false;
 	}//End of setQuery()
-}
+	
+	@Override
+	public double totalGeneratedBillAmount(String region) {
+		return dao.totalGeneratedBillAmount(region);
+	}
+
+	@Override
+	public double collectedBillAmount(String region) {
+		return dao.collectedBillAmount(region);
+	}
+
+	
+}//End of service

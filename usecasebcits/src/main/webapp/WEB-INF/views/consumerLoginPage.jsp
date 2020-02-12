@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<% String msg = (String) request.getAttribute("msg"); %>
+<% String errMsg = (String) request.getAttribute("errMsg"); %>
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
@@ -22,7 +22,31 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
-<jsp:include page="header.jsp"></jsp:include>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+		<img height="70px" src="${images}/Dislogo.gif" alt="">
+		
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav offset-md-1 pl-3">
+				<li class="nav-item active">
+					<h3 class=" active">
+						<a class="nav-link" href="#">CENTRAL DISCOM ELECTRICITY SUPPLY
+							PRIVATE LIMITED <span class="sr-only">(current)</span>
+						</a>
+					</h3>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a class="nav-link active"
+					href="./mainHomePage"><i class="fas fa-home"></i></a>
+				</li>
+				<li class="nav-item active"><a class="nav-link active" href="./consAboutUsPage">&nbsp;About Us</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
 <body>
 	<div
 		class="col-md-4 col-sm-12  col-10 col-4 offset-md-4   offset-1 <!-- card card-body --> mt-5 <!-- my-card -->">
@@ -79,14 +103,11 @@
 		</p>
 	</div>
 		
-	<% if(msg != null && !msg.isEmpty()) {%>
-	<h2 style="color: blue;"><%=msg%>
+	<% if(errMsg != null && !errMsg.isEmpty()) {%>
+	<h2 style="color: blue;"><%=errMsg%>
 	</h2>
 	<%}%>
 	
-	
-
-
 	<script src="${js}/jquery/jquery-3.4.1.js"></script>
 	<script src="${js}/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
 	<script src="${js}/consumerLoginP.js"></script>

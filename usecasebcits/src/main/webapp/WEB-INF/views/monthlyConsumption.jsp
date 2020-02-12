@@ -66,7 +66,7 @@
   <thead>
     <tr>
  
-      <th scope="col">Date Of Payment</th>
+      <th scope="col">Date Of Issued</th>
       <th scope="col">Total Units</th>
       <th scope="col">Bill Amount</th>
       

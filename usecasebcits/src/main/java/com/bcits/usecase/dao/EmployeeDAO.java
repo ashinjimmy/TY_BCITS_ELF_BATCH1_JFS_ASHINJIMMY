@@ -17,5 +17,5 @@ public interface EmployeeDAO {
 	public double  getIntialReading(String rrNumber);
 	public List<QueryMsgBean> getQueryList(String region);
 	public boolean sendRespond(String rrNumber,String response ,Date date);
-
+	
 }

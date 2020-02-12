@@ -102,7 +102,7 @@ public class CustomerDAOImp implements CustomerDAO {
 	}
 
 	@Override
-	public List<BillHistoryBean> showBillHistory(String rrNumber) {
+	public List<BillHistoryBean>showBillHistory(String rrNumber) {
 		EntityManager manager = factory.createEntityManager();
 		Query query = manager.createQuery("from BillHistoryBean where rr_Number =:  rrNumber");
 		query.setParameter("rrNumber", rrNumber);
@@ -192,5 +192,44 @@ System.out.println(rrNumber);
 		}
 		return false;
 	}//End of setQuery()
+	
+	@Override
+	public double totalGeneratedBillAmount(String region) {
+		double totalBillAmount = 0.0;
+		EntityManager manager = factory.createEntityManager();
+
+		try {
+			Query query = manager
+					.createQuery("select sum(billAmount) " + "from MonthlyConsumption where region =: region");
+			query.setParameter("region", region);
+			totalBillAmount = (double) query.getSingleResult();
+		} catch (Exception e) {
+			return 0;
+		}
+		if (totalBillAmount != 0) {
+			return totalBillAmount;
+		}
+		return 0;
+	}
+
+	@Override
+	public double collectedBillAmount(String region) {
+		double collectedBillAmount = 0.0;
+		EntityManager manager = factory.createEntityManager();
+		try {
+			Query query = manager.createQuery(
+					"  select sum(billAmount) from MonthlyConsumption"
+					+ " where region =: region and status = 'Paid' ");
+			query.setParameter("region", region);
+			collectedBillAmount  = (double) query.getSingleResult();
+		} catch (Exception e) {
+			return 0;
+		}
+		if (collectedBillAmount  != 0) {
+			return collectedBillAmount ;
+		}
+		return 0;
+	}
+
 
 }// End of Class

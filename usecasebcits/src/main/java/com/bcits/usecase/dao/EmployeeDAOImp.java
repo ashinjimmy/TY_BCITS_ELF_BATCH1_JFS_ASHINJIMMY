@@ -8,7 +8,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
-import javax.sound.midi.Soundbank;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,7 +18,6 @@ import com.bcits.usecase.beans.EmployeeMasterBean;
 import com.bcits.usecase.beans.MonthlyConsumption;
 import com.bcits.usecase.beans.MonthlyConsumptionPk;
 import com.bcits.usecase.beans.QueryMsgBean;
-import com.bcits.usecase.beans.TariffMaster;
 
 @Repository
 public class EmployeeDAOImp implements EmployeeDAO {
@@ -75,7 +73,6 @@ public class EmployeeDAOImp implements EmployeeDAO {
 		EntityTransaction transaction = manager.getTransaction();
 		MonthlyConsumption monthlyConsumption = new MonthlyConsumption();
 		MonthlyConsumptionPk monthlyConsumptionPk = new MonthlyConsumptionPk();
-		
 
 		ConsumerMasterBean conMasterBean = manager.find(ConsumerMasterBean.class, currentBillBean.getRrNumber());
 
@@ -92,14 +89,13 @@ public class EmployeeDAOImp implements EmployeeDAO {
 			monthlyConsumption.setCurrentReading(currentBillBean.getCurrentReading());
 			monthlyConsumption.setTotalUnits(units);
 			monthlyConsumption.setRegion(conMasterBean.getRegion());
-		
+
 			monthlyConsumption.setStatus("Not Paid");
 			monthlyConsumption.setMonthlyConsumptionPk(monthlyConsumptionPk);
 			monthlyConsumptionPk.setDate(new Date());
 			monthlyConsumptionPk.setRrNumber(currentBillBean.getRrNumber());
 			currentBillBean.setBillAmount(billAmount);
 			currentBillBean.setTotalUnits(units);
-		//	currentBillBean.setDueDate(new Date());
 			currentBillBean.setIssueDate(new Date());
 			manager.persist(monthlyConsumption);
 			manager.persist(currentBillBean);
@@ -108,7 +104,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 		} catch (Exception e) {
 			return false;
 		}
-	}//End of  addCurrentBill()
+	}// End of addCurrentBill()
 
 	@Override
 	public ConsumerMasterBean getConsumer(String rrNumber) {
@@ -129,8 +125,8 @@ public class EmployeeDAOImp implements EmployeeDAO {
 		double initialReading;
 
 		try {
-			Query query = manager
-					.createQuery("select currentReading from MonthlyConsumption where monthlyConsumptionPk.rrNumber =: rrNumber "
+			Query query = manager.createQuery(
+					"select currentReading from MonthlyConsumption where monthlyConsumptionPk.rrNumber =: rrNumber "
 							+ "order by currentReading desc");
 			query.setMaxResults(1);
 			query.setParameter("rrNumber", rrNumber);
@@ -181,4 +177,5 @@ public class EmployeeDAOImp implements EmployeeDAO {
 		}
 	}
 
+	
 }// End of class

@@ -15,12 +15,14 @@ public interface CustomerDAO {
 	public ConsumerMasterBean consumerLogin(String emailId, String password);
 	public boolean payment(String rrNumber, Date date , double billAmount);
 	public CurrentBillBean showCurrentBill(String rrNumber);
-	public List<BillHistoryBean> showBillHistory(String rrNumber);
+	public List<BillHistoryBean> showBillHistory(String rrNumber); 
     public List<MonthlyConsumption> monthlyConsumption(String rrNumber);
     public  ConsumerMasterBean  getConsumer(String rrNumber);
     public List<MonthlyConsumption> showAllBillList(String region);
     public List<QueryMsgBean> getResponse(String rrNumber);
 	public boolean setQuery(String request, String rrNumber, String region);
+	public double totalGeneratedBillAmount(String region);
+	public double collectedBillAmount(String region);
     
 //    public double previousReading(String rrNumber);
  }
